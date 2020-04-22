@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EECS3550_TermProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Chocoholics Anonymous Data Center" Height="450" Width="800" Background="CornflowerBlue" WindowStyle="SingleBorderWindow" ResizeMode="CanResize">
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="256" Height="400">
+            <Label x:Name="lblProviderLogin" Content="Login ID:" FontSize="24" Width="256" Height="48" Margin="64,32"/>
+            <TextBox x:Name="inProviderID" TextWrapping="Wrap" AcceptsTab="False" Width="128" Height="24" Margin="64,0"/>
+            <Label x:Name="lblInputError" Content="Provider ID is incorrect, must be numerical!" Foreground="Red" Margin="64,0" Visibility="Hidden"/>
+            <Button x:Name="btnLogin" Content="Login" Background="AntiqueWhite" Width="128" Height="24" Click="btnLogin_Click" Margin="64,32"/>
+        </StackPanel>
+
     </Grid>
 </Window>
