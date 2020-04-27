@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EECS3550_TermProject.Properties
+namespace ChocAn.Properties
 {
 
 
