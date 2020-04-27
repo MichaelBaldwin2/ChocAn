@@ -1,0 +1,58 @@
+﻿<Window x:Class="ChocAn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChocAn"
+        mc:Ignorable="d"
+        Title="Chocoholics Anonymous Data Center" Height="450" Width="800" Background="CornflowerBlue" WindowStyle="SingleBorderWindow" ResizeMode="CanResize">
+    <Grid>
+        <Grid x:Name="ProfessionPanel">
+            <Label x:Name="lblWhoAmI" Content="Choose your profession to login..." HorizontalAlignment="Left" Margin="55,41,0,0" VerticalAlignment="Top" FontSize="48"/>
+            <Button x:Name="btnProviderProLogin" Content="Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="64" Margin="156,185,0,0" FontSize="24" Click="btnProviderProLogin_Click"/>
+            <Button x:Name="btnManagerProLogin" Content="Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="64" Margin="490,185,0,0" FontSize="24" Click="btnManagerProLogin_Click"/>
+        </Grid>
+        <StackPanel x:Name="ProviderLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Hidden">
+            <Label x:Name="lblProviderLogin" Content="Provider Login ID:" HorizontalAlignment="Center" FontSize="24" Margin="32"/>
+            <TextBox x:Name="inProviderID" TextWrapping="Wrap" HorizontalAlignment="Center" AcceptsTab="False" Width="128" Height="24" Margin="32"/>
+            <Label x:Name="lblProviderInputError" HorizontalAlignment="Center" Foreground="Red"/>
+            <Button x:Name="btnProviderLogin" Content="Login" HorizontalAlignment="Center" Background="AntiqueWhite" Width="128" Height="24" Click="btnProviderLogin_Click" Margin="32"/>
+        </StackPanel>
+        <StackPanel x:Name="ManagerLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Hidden">
+            <Label x:Name="lblManagerLogin" Content="Manager Login ID:" HorizontalAlignment="Center" FontSize="24" Margin="32"/>
+            <TextBox x:Name="inManagerID" TextWrapping="Wrap" HorizontalAlignment="Center" AcceptsTab="False" Width="128" Height="24" Margin="32"/>
+            <Label x:Name="lblManagerInputError" HorizontalAlignment="Center" Foreground="Red"/>
+            <Button x:Name="btnManagerLogin" Content="Login" HorizontalAlignment="Center" Background="AntiqueWhite" Width="128" Height="24" Click="btnManagerLogin_Click" Margin="32"/>
+        </StackPanel>
+        <Grid x:Name="ProviderPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+            <Label x:Name="lblProviderPanel" Content="Provider Panel" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="293,11,-339,-11"/>
+            <Button x:Name="btnProviderBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="333,352,-307,-170" Click="btnProviderBack_Click"/>
+        </Grid>
+        <Grid x:Name="ManagerPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+            <Label x:Name="lblManagerPanel" Content="Manager Panel" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="293,11,-339,-11"/>
+            <Button x:Name="btnManagerBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="333,352,-307,-170" Click="btnManagerBack_Click"/>
+
+            <StackPanel Margin="66,68,-66,-68">
+                <Label x:Name="lblNewProvider" Content="New Provider" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24"/>
+                <TextBox x:Name="inProviderName" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inProviderNumber" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inProviderAddress" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inProviderCity" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inProviderState" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inProviderZip" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Zip" VerticalAlignment="Top" Width="128"/>
+                <Button x:Name="btnNewProvider" Content="Add Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Click="btnNewProvider_Click"/>
+            </StackPanel>
+
+            <StackPanel Margin="575,68,-575,-68">
+                <Label x:Name="lblNewMember" Content="New Member" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24"/>
+                <TextBox x:Name="inMemberName" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inMemberNumber" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inMemberAddress" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inMemberCity" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inMemberState" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Width="128"/>
+                <TextBox x:Name="inMemberZip" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Zip" VerticalAlignment="Top" Width="128"/>
+                <Button x:Name="btnNewMember" Content="Add Member" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Click="btnNewMember_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
