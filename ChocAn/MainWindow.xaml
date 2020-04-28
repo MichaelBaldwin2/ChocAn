@@ -6,52 +6,75 @@
         xmlns:local="clr-namespace:ChocAn"
         mc:Ignorable="d"
         Title="Chocoholics Anonymous Data Center" Height="450" Width="800" Background="CornflowerBlue" WindowStyle="SingleBorderWindow" ResizeMode="CanResize">
-    <Grid>
-        <Grid x:Name="ProfessionPanel">
-            <Label x:Name="lblWhoAmI" Content="Choose your profession to login..." HorizontalAlignment="Left" Margin="55,41,0,0" VerticalAlignment="Top" FontSize="48"/>
-            <Button x:Name="btnProviderProLogin" Content="Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="64" Margin="156,185,0,0" FontSize="24" Click="btnProviderProLogin_Click"/>
-            <Button x:Name="btnManagerProLogin" Content="Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="64" Margin="490,185,0,0" FontSize="24" Click="btnManagerProLogin_Click"/>
+    <Grid Background="#FFD9D0C3">
+        <Grid x:Name="ProfessionPanel" Background="#FFD9D0C3" HorizontalAlignment="Left" Margin="1,-1,0,1">
+            <Button x:Name="btnProviderProLogin" Content="Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" Margin="242,250,0,0" FontSize="20" Click="btnProviderProLogin_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
+            <Button x:Name="btnManagerProLogin" Content="Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" Margin="413,250,0,0" FontSize="20" Click="btnManagerProLogin_Click" RenderTransformOrigin="0.542,2.09" Background="#FFD9D0C3" FontFamily="Candara" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
+            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="135" Margin="31,66,35,0" VerticalAlignment="Top" Width="726" Source="/img/ChocAnLogo.png">
+            </Image>
+            <Button x:Name="btnMemberProLogin" Content="Member" HorizontalAlignment="Left" Height="50" Margin="71,250,0,0" VerticalAlignment="Top" Width="125" Background="#FFD9D0C3" FontFamily="Candara" FontSize="20" BorderBrush="#FF2B475C" Foreground="#FF2B475C" Click="btnMemberProLogin_Click"/>
+            <Button x:Name="btnOperatorProLogin" Content="Operator" HorizontalAlignment="Left" Height="50" Margin="584,250,0,0" VerticalAlignment="Top" Width="125" Background="#FFD9D0C3" FontFamily="Candara" FontSize="20" BorderBrush="#FF2B475C" Foreground="#FF2B475C" Click="btnOperatorProLogin_Click"/>
         </Grid>
-        <StackPanel x:Name="ProviderLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Hidden">
-            <Label x:Name="lblProviderLogin" Content="Provider Login ID:" HorizontalAlignment="Center" FontSize="24" Margin="32"/>
-            <TextBox x:Name="inProviderID" TextWrapping="Wrap" HorizontalAlignment="Center" AcceptsTab="False" Width="128" Height="24" Margin="32"/>
-            <Label x:Name="lblProviderInputError" HorizontalAlignment="Center" Foreground="Red"/>
-            <Button x:Name="btnProviderLogin" Content="Login" HorizontalAlignment="Center" Background="AntiqueWhite" Width="128" Height="24" Click="btnProviderLogin_Click" Margin="32"/>
-        </StackPanel>
-        <StackPanel x:Name="ManagerLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Hidden">
-            <Label x:Name="lblManagerLogin" Content="Manager Login ID:" HorizontalAlignment="Center" FontSize="24" Margin="32"/>
-            <TextBox x:Name="inManagerID" TextWrapping="Wrap" HorizontalAlignment="Center" AcceptsTab="False" Width="128" Height="24" Margin="32"/>
-            <Label x:Name="lblManagerInputError" HorizontalAlignment="Center" Foreground="Red"/>
-            <Button x:Name="btnManagerLogin" Content="Login" HorizontalAlignment="Center" Background="AntiqueWhite" Width="128" Height="24" Click="btnManagerLogin_Click" Margin="32"/>
-        </StackPanel>
-        <Grid x:Name="ProviderPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+        <Grid x:Name="MemberLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFD9D0C3" Margin="10,0,0.6,0" Width="783" Height="420" Visibility="Hidden">
+            <TextBox x:Name="inMemberID" TextWrapping="Wrap" AcceptsTab="False" Background="#FFEAE5DF" Width="140" Margin="434,159,209,231" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label x:Name="lblMemberInputError" HorizontalAlignment="Center" Foreground="Red" Margin="180,315,148,23" Width="455" RenderTransformOrigin="0.495,0.273" FontWeight="Bold" FontFamily="Candara" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btnMemberLogin" Content="Login" HorizontalAlignment="Center" Width="125"  Margin="434,250,224,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20" Click="btnMemberLogin_Click"/>
+            <Label x:Name="lblMemberLogin" Content="Member Login ID" HorizontalAlignment="Center" FontSize="16" Margin="206,159,373,231" HorizontalContentAlignment="Center" FontFamily="Candara" Height="30" VerticalAlignment="Center" Width="204" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Height="75" Margin="372,45,0,0" VerticalAlignment="Top" Width="75" Source="img/ChocAnLogoMin.png"/>
+            <Button x:Name="btnMemberBackToPro" Content="Cancel" HorizontalAlignment="Center" Width="124"  Margin="270,250,389,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20" Click="btnBackToMain_Click"/>
+        </Grid>
+        <Grid x:Name="ProviderLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFD9D0C3" Margin="10,0,0.6,0" Width="783" Height="420" Visibility="Hidden">
+            <TextBox x:Name="inProviderID" TextWrapping="Wrap" AcceptsTab="False" Background="#FFEAE5DF" Width="140" Margin="434,159,209,231" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label x:Name="lblProviderInputError" HorizontalAlignment="Center" Foreground="Red" Margin="180,315,148,23" Width="455" RenderTransformOrigin="0.495,0.273" FontWeight="Bold" FontFamily="Candara" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btnProviderLogin" Content="Login" HorizontalAlignment="Center" Width="125" Click="btnProviderLogin_Click" Margin="434,250,224,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20"/>
+            <Label x:Name="lblProviderLogin" Content="Provider Login ID" HorizontalAlignment="Center" FontSize="16" Margin="206,159,373,231" HorizontalContentAlignment="Center" FontFamily="Candara" Height="30" VerticalAlignment="Center" Width="204" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Height="75" Margin="372,45,0,0" VerticalAlignment="Top" Width="75" Source="img/ChocAnLogoMin.png"/>
+            <Button x:Name="btnProviderBackToPro" Content="Cancel" HorizontalAlignment="Center" Width="124"  Margin="270,250,389,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20" Click="btnBackToMain_Click"/>
+        </Grid>
+        <Grid x:Name="ManagerLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Height="419" Margin="1,0,-0.4,0" Width="793" Background="#FFD9D0C3" Visibility="Hidden">
+            <Image HorizontalAlignment="Left" Height="75" Margin="372,45,0,0" VerticalAlignment="Top" Width="75" Source="img/ChocAnLogoMin.png"/>
+            <Label x:Name="lblManagerLogin" Content="Manager Login ID" HorizontalAlignment="Center" FontSize="16" Margin="206,159,373,231" HorizontalContentAlignment="Center" FontFamily="Candara" Height="30" VerticalAlignment="Center" Width="204" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="inManagerID" TextWrapping="Wrap" AcceptsTab="False" Background="#FFEAE5DF" Width="140" Margin="434,159,209,231" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label x:Name="lblManagerInputError" HorizontalAlignment="Center" Foreground="Red" Margin="180,315,148,23" Width="455" RenderTransformOrigin="0.495,0.273" FontWeight="Bold" FontFamily="Candara" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btnManagerLogin" Content="Login" HorizontalAlignment="Center" Width="125" Click="btnManagerLogin_Click" Margin="439,250,229,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20"/>
+            <Button x:Name="btnManagerBackToPro" Content="Cancel" HorizontalAlignment="Center" Width="125"  Margin="274,250,394,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20" Click="btnBackToMain_Click"/>
+        </Grid>
+        <Grid x:Name="OperatorLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFD9D0C3" Margin="10,0,0.6,0" Width="783" Height="420" Visibility="Hidden">
+            <TextBox x:Name="inOperatorID" TextWrapping="Wrap" AcceptsTab="False" Background="#FFEAE5DF" Width="140" Margin="434,159,209,231" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+            <Label x:Name="lblOperatorInputError" HorizontalAlignment="Center" Foreground="Red" Margin="180,315,148,23" Width="455" RenderTransformOrigin="0.495,0.273" FontWeight="Bold" FontFamily="Candara" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btnOperatorLogin" Content="Login" HorizontalAlignment="Center" Width="125"  Margin="434,250,224,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20" Click="btnOperatorLogin_Click"/>
+            <Label x:Name="lblOperatorLogin" Content="Operator Login ID" HorizontalAlignment="Center" FontSize="16" Margin="206,159,373,231" HorizontalContentAlignment="Center" FontFamily="Candara" Height="30" VerticalAlignment="Center" Width="204" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Height="75" Margin="372,45,0,0" VerticalAlignment="Top" Width="75" Source="img/ChocAnLogoMin.png"/>
+            <Button x:Name="btnOperatorBackToPro" Content="Cancel" HorizontalAlignment="Center" Width="124"  Margin="270,250,389,130" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" RenderTransformOrigin="0.527,2.042" FontSize="20" Click="btnBackToMain_Click"/>
+        </Grid>
+        <Grid x:Name="ProviderPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFD9D0C3" Visibility="Hidden">
             <Label x:Name="lblProviderPanel" Content="Provider Panel" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="293,11,-339,-11"/>
-            <Button x:Name="btnProviderBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="333,352,-307,-170" Click="btnProviderBack_Click"/>
+            <Button x:Name="btnProviderBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="333,352,-307,-170" Click="btnProviderBack_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
         </Grid>
-        <Grid x:Name="ManagerPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
-            <Label x:Name="lblManagerPanel" Content="Manager Panel" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="293,11,-339,-11"/>
-            <Button x:Name="btnManagerBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="333,352,-307,-170" Click="btnManagerBack_Click"/>
+        <Grid x:Name="ManagerPanel" HorizontalAlignment="Left" Background="#FFD9D0C3" VerticalAlignment="Top" Height="420" Width="793" Visibility="Hidden">
+            <Label x:Name="lblManagerPanel" Content="Manager Panel" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="312,28,313,0" RenderTransformOrigin="0.494,0.962" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara"/>
+            <Button x:Name="btnManagerBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="333,352,-307,-170" Click="btnManagerBack_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
 
-            <StackPanel Margin="66,68,-66,-68">
-                <Label x:Name="lblNewProvider" Content="New Provider" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24"/>
-                <TextBox x:Name="inProviderName" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inProviderNumber" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inProviderAddress" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inProviderCity" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inProviderState" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inProviderZip" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Zip" VerticalAlignment="Top" Width="128"/>
-                <Button x:Name="btnNewProvider" Content="Add Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Click="btnNewProvider_Click"/>
+            <StackPanel Margin="158,77,483,124" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label x:Name="lblNewProvider" Content="New Provider" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara"/>
+                <TextBox x:Name="inProviderName" Height="24" TextWrapping="Wrap" Text="Name" Width="152" Background="#FFEAE5DF" BorderBrush="#FF7A7A7A" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inProviderNumber" Height="24" TextWrapping="Wrap" Text="Number" Width="152" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inProviderAddress" Height="24" TextWrapping="Wrap" Text="Address" Width="152" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inProviderCity" Height="24" TextWrapping="Wrap" Text="City" Width="152" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inProviderState" Height="24" TextWrapping="Wrap" Text="State" Width="152" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inProviderZip" Height="24" TextWrapping="Wrap" Text="Zip" Width="152" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <Button x:Name="btnNewProvider" Content="Add Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" Click="btnNewProvider_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" Height="26" FontWeight="Bold" Padding="1" Margin="0,10,0,0"/>
             </StackPanel>
 
-            <StackPanel Margin="575,68,-575,-68">
-                <Label x:Name="lblNewMember" Content="New Member" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24"/>
-                <TextBox x:Name="inMemberName" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inMemberNumber" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inMemberAddress" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inMemberCity" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inMemberState" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="State" VerticalAlignment="Top" Width="128"/>
-                <TextBox x:Name="inMemberZip" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="Zip" VerticalAlignment="Top" Width="128"/>
-                <Button x:Name="btnNewMember" Content="Add Member" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Click="btnNewMember_Click"/>
+            <StackPanel Margin="484,76,153,123" HorizontalAlignment="Center" VerticalAlignment="Center" Height="221" Width="156">
+                <Label x:Name="lblNewMember" Content="New Member" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara"/>
+                <TextBox x:Name="inMemberName" Height="24" TextWrapping="Wrap" Text="Name" Width="154" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inMemberNumber" Height="24" TextWrapping="Wrap" Text="Number" Width="154" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inMemberAddress" Height="24" TextWrapping="Wrap" Text="Address" Width="154" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inMemberCity" Height="24" TextWrapping="Wrap" Text="City" Width="154" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inMemberState" Height="24" TextWrapping="Wrap" Text="State" Width="154" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <TextBox x:Name="inMemberZip" Height="24" TextWrapping="Wrap" Text="Zip" Width="154" BorderBrush="#FF7A7A7A" Background="#FFEAE5DF" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Candara" AcceptsTab="True"/>
+                <Button x:Name="btnNewMember" Content="Add Member" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Click="btnNewMember_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" Height="26" FontWeight="Bold" Padding="1" Margin="0,10,0,0"/>
             </StackPanel>
         </Grid>
     </Grid>
