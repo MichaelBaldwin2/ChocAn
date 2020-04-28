@@ -117,5 +117,15 @@ namespace ChocAn
 			ManagerPanel.Visibility = Visibility.Hidden;
 			ProfessionPanel.Visibility = Visibility.Visible;
 		}
+
+		private void btnMemberLogin_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnOperatorLogin_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

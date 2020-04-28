@@ -7,10 +7,13 @@
         mc:Ignorable="d"
         Title="Chocoholics Anonymous Data Center" Height="450" Width="800" Background="CornflowerBlue" WindowStyle="SingleBorderWindow" ResizeMode="CanResize">
     <Grid>
-        <Grid x:Name="ProfessionPanel">
-            <Label x:Name="lblWhoAmI" Content="Choose your profession to login..." HorizontalAlignment="Left" Margin="55,41,0,0" VerticalAlignment="Top" FontSize="48"/>
-            <Button x:Name="btnProviderProLogin" Content="Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="64" Margin="156,185,0,0" FontSize="24" Click="btnProviderProLogin_Click"/>
-            <Button x:Name="btnManagerProLogin" Content="Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="64" Margin="490,185,0,0" FontSize="24" Click="btnManagerProLogin_Click"/>
+        <Grid x:Name="ProfessionPanel" Background="#FFD9D0C3" HorizontalAlignment="Left">
+            <Button x:Name="btnProviderProLogin" Content="Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" Margin="242,250,0,0" FontSize="20" Click="btnProviderProLogin_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
+            <Button x:Name="btnManagerProLogin" Content="Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" Margin="413,250,0,0" FontSize="20" Click="btnManagerProLogin_Click" RenderTransformOrigin="0.542,2.09" Background="#FFD9D0C3" FontFamily="Candara" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
+            <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="135" Margin="31,66,35,0" VerticalAlignment="Top" Width="726" Source="/img/ChocAnLogo.png">
+            </Image>
+            <Button x:Name="btnMemberLogin" Content="Member" HorizontalAlignment="Left" Height="50" Margin="71,250,0,0" VerticalAlignment="Top" Width="125" Background="#FFD9D0C3" FontFamily="Candara" FontSize="20" BorderBrush="#FF2B475C" Foreground="#FF2B475C" Click="btnMemberLogin_Click"/>
+            <Button x:Name="btnOperatorLogin" Content="Operator" HorizontalAlignment="Left" Height="50" Margin="584,250,0,0" VerticalAlignment="Top" Width="125" Background="#FFD9D0C3" FontFamily="Candara" FontSize="20" BorderBrush="#FF2B475C" Foreground="#FF2B475C" Click="btnOperatorLogin_Click"/>
         </Grid>
         <StackPanel x:Name="ProviderLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Hidden">
             <Label x:Name="lblProviderLogin" Content="Provider Login ID:" HorizontalAlignment="Center" FontSize="24" Margin="32"/>
