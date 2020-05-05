@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DBFile.cs" />
+    <Compile Include="GenerateReport.cs" />
     <Compile Include="IDNumber.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberNotFoundException.cs" />

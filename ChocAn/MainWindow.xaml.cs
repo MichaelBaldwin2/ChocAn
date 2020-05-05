@@ -46,15 +46,25 @@ namespace ChocAn
 				return;
 			}
 
-			// Check if Provider ID exists in database
-			try
+			// We only have a single operator login (Hint: It's '0000')
+			if (providerNumber != "0000")
 			{
-				var provider = dataCenter.GetProviderInfo(providerNumber);
+				lblProviderIDInputError.Content = "Incorrect Manager ID (Hint: It's '0000')";
+				return;
 			}
-			catch (ProviderNotFoundException exc)
-			{
-				lblProviderIDInputError.Content = exc.Message;
-			}
+
+			ProviderLoginPanel.Visibility = Visibility.Hidden;
+			ProviderPanel.Visibility = Visibility.Visible;
+
+			//// Check if Provider ID exists in database
+			//try
+			//{
+			//	var provider = dataCenter.GetProviderInfo(providerNumber);
+			//}
+			//catch (ProviderNotFoundException exc)
+			//{
+			//	lblProviderIDInputError.Content = exc.Message;
+			//}
 		}
 
 		private void btnManagerProLogin_Click(object sender, RoutedEventArgs e)
@@ -64,11 +74,24 @@ namespace ChocAn
 		}
 		private void btnManagerLogin_Click(object sender, RoutedEventArgs e)
 		{
+			var managerID = inManagerID.Password;
+			var isManagerID = !numOnlyRegex.IsMatch(managerID);
 
-		}
-		private void btnManagerBack_Click(object sender, RoutedEventArgs e)
-		{
+			if (!isManagerID)
+			{
+				lblManagerIDInputError.Content = "Manager ID must be numerical!";
+				return;
+			}
 
+			// We only have a single operator login (Hint: It's '0000')
+			if (managerID != "0000")
+			{
+				lblManagerIDInputError.Content = "Incorrect Manager ID (Hint: It's '0000')";
+				return;
+			}
+
+			ManagerLoginPanel.Visibility = Visibility.Hidden;
+			ManagerPanel.Visibility = Visibility.Visible;
 		}
 
 		private void btnOperatorProLogin_Click(object sender, RoutedEventArgs e)
@@ -118,7 +141,24 @@ namespace ChocAn
 		}
 		private void btnMemberLogin_Click(object sender, RoutedEventArgs e)
 		{
+			var memberID = inMemberID.Password;
+			var isMemberID = !numOnlyRegex.IsMatch(memberID);
 
+			if (!isMemberID)
+			{
+				lblOperatorIDInputError.Content = "Operator ID must be numerical!";
+				return;
+			}
+
+			// We only have a single operator login (Hint: It's '0000')
+			if (memberID != "0000")
+			{
+				lblOperatorIDInputError.Content = "Incorrect Operator ID (Hint: It's '0000')";
+				return;
+			}
+
+			MemberLoginPanel.Visibility = Visibility.Hidden;
+			MemberPanel.Visibility = Visibility.Visible;
 		}
 
 		private void btnBackToMain_Click(object sender, RoutedEventArgs e)
@@ -131,13 +171,60 @@ namespace ChocAn
 
 			ProviderPanel.Visibility = Visibility.Hidden;
 			OperatorPanel.Visibility = Visibility.Hidden;
+			ManagerPanel.Visibility	 = Visibility.Hidden;
+			MemberPanel.Visibility   = Visibility.Hidden;
 
 			inMemberID.Clear();
 			inProviderID.Clear();
 			inManagerID.Clear();
 			inOperatorID.Clear();
+			inManagerID.Clear();
 			
 		}
-		
+
+		private void btnGenerateSummaryReport_Click(object sender, RoutedEventArgs e) // Generate Summary Report
+		{
+			GenerateReport.generateSummaryReport();
+		}
+
+		private void btnGenerateMemberReport_Click(object sender, RoutedEventArgs e)
+		{
+			GenerateReport.generateMemberReport();
+		}
+
+		private void btnGenerateProviderReport_Click(object sender, RoutedEventArgs e)
+		{
+			GenerateReport.generateProviderReport();
+		}
+
+		private void btnGenerateAllMemberReports_Click(object sender, RoutedEventArgs e)
+		{
+			GenerateReport.generateAllMemberReports();
+		}
+
+		private void btnGenerateAllProviderReports_Click(object sender, RoutedEventArgs e)
+		{
+			GenerateReport.generateAllProviderReports();
+		}
+
+		private void btnValidateMember_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnBillChocAn_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnProviderDirectory_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnPayFees_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
