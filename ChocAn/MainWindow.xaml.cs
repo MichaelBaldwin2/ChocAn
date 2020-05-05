@@ -30,12 +30,31 @@ namespace ChocAn
 			dataCenter = new ChocAnDataCenter("C:/Temp/ChocAnDB.xml");
 		}
 
-		//===== MAIN PANEL =====\\
-
 		private void btnProviderProLogin_Click(object sender, RoutedEventArgs e)
 		{
 			ProfessionPanel.Visibility = Visibility.Hidden;
 			ProviderLoginPanel.Visibility = Visibility.Visible;
+		}
+		private void btnProviderLogin_Click(object sender, RoutedEventArgs e)
+		{
+			var providerNumber = inProviderID.Password;
+			var isProviderID = !numOnlyRegex.IsMatch(providerNumber);
+
+			if (!isProviderID)
+			{
+				lblProviderIDInputError.Content = "Provider ID must be numerical!";
+				return;
+			}
+
+			// Check if Provider ID exists in database
+			try
+			{
+				var provider = dataCenter.GetProviderInfo(providerNumber);
+			}
+			catch (ProviderNotFoundException exc)
+			{
+				lblProviderIDInputError.Content = exc.Message;
+			}
 		}
 
 		private void btnManagerProLogin_Click(object sender, RoutedEventArgs e)
@@ -43,61 +62,41 @@ namespace ChocAn
 			ProfessionPanel.Visibility = Visibility.Hidden;
 			ManagerLoginPanel.Visibility = Visibility.Visible;
 		}
-
-		//===== PROVIDER =====\\
-
-		private void btnProviderLogin_Click(object sender, RoutedEventArgs e)
-		{
-			var providerNumber = inProviderID.Text;
-			var isProviderID = !numOnlyRegex.IsMatch(providerNumber);
-
-			if (!isProviderID)
-			{
-				lblProviderInputError.Content = "Provider ID must be numerical!";
-				return;
-			}
-
-			// Now we check if the provider ID even exists in the DataBase
-			try
-			{
-				var provider = dataCenter.GetProviderInfo(providerNumber);
-			}
-			catch(ProviderNotFoundException exc)
-			{
-				lblProviderInputError.Content = exc.Message;
-			}
-		}
-
-		private void btnProviderBack_Click(object sender, RoutedEventArgs e)
-		{
-			ProviderPanel.Visibility = Visibility.Hidden;
-			ProfessionPanel.Visibility = Visibility.Visible;
-		}
-
-		//===== MANAGER =====\\
-
 		private void btnManagerLogin_Click(object sender, RoutedEventArgs e)
 		{
-			var managerID = inManagerID.Text;
-			var isManagerID = !numOnlyRegex.IsMatch(managerID);
 
-			if (!isManagerID)
-			{
-				lblManagerInputError.Content = "Manager ID must be numerical!";
-				return;
-			}
+		}
+		private void btnManagerBack_Click(object sender, RoutedEventArgs e)
+		{
 
-			// We only have a single manager login (Hint: It's '0000')
-			if(managerID != "0000")
-			{
-				lblManagerInputError.Content = "Incorrect manager ID (Hint: It's '0000')";
-				return;
-			}
-
-			ManagerLoginPanel.Visibility = Visibility.Hidden;
-			ManagerPanel.Visibility = Visibility.Visible;
 		}
 
+		private void btnOperatorProLogin_Click(object sender, RoutedEventArgs e)
+		{
+			ProfessionPanel.Visibility = Visibility.Hidden;
+			OperatorLoginPanel.Visibility = Visibility.Visible;
+		}
+		private void btnOperatorLogin_Click(object sender, RoutedEventArgs e)
+		{
+			var operatorID = inOperatorID.Password;
+			var isOperatorID = !numOnlyRegex.IsMatch(operatorID);
+
+			if (!isOperatorID)
+			{
+				lblOperatorIDInputError.Content = "Operator ID must be numerical!";
+				return;
+			}
+
+			// We only have a single operator login (Hint: It's '0000')
+			if(operatorID != "0000")
+			{
+				lblOperatorIDInputError.Content = "Incorrect Operator ID (Hint: It's '0000')";
+				return;
+			}
+
+			OperatorLoginPanel.Visibility = Visibility.Hidden;
+			OperatorPanel.Visibility = Visibility.Visible;
+		}
 		private void btnNewProvider_Click(object sender, RoutedEventArgs e)
 		{
 			// Check all the inputs
@@ -112,22 +111,14 @@ namespace ChocAn
 			dataCenter.AddNewMember(member);
 		}
 
-		private void btnManagerBack_Click(object sender, RoutedEventArgs e)
-		{
-			ManagerPanel.Visibility = Visibility.Hidden;
-			ProfessionPanel.Visibility = Visibility.Visible;
-		}
-
 		private void btnMemberProLogin_Click(object sender, RoutedEventArgs e)
 		{
 			ProfessionPanel.Visibility = Visibility.Hidden;
 			MemberLoginPanel.Visibility = Visibility.Visible;
 		}
-
-		private void btnOperatorProLogin_Click(object sender, RoutedEventArgs e)
+		private void btnMemberLogin_Click(object sender, RoutedEventArgs e)
 		{
-			ProfessionPanel.Visibility = Visibility.Hidden;
-			OperatorLoginPanel.Visibility = Visibility.Visible;
+
 		}
 
 		private void btnBackToMain_Click(object sender, RoutedEventArgs e)
@@ -137,16 +128,16 @@ namespace ChocAn
 			ManagerLoginPanel.Visibility	= Visibility.Hidden;
 			OperatorLoginPanel.Visibility	= Visibility.Hidden;
 			ProfessionPanel.Visibility		= Visibility.Visible;
+
+			ProviderPanel.Visibility = Visibility.Hidden;
+			OperatorPanel.Visibility = Visibility.Hidden;
+
+			inMemberID.Clear();
+			inProviderID.Clear();
+			inManagerID.Clear();
+			inOperatorID.Clear();
+			
 		}
-
-		private void btnMemberLogin_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void btnOperatorLogin_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
+		
 	}
 }
