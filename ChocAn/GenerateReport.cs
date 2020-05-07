@@ -187,6 +187,8 @@ namespace ChocAn
 					output.WriteLine("Service Name: " + iService.Name + "," + " Service Code: " + iService.Code + "," + " Service Fee: $" + iService.Fee + "\n");
 				}
 			}
+
+			OpenFile(fileName);
 		}
 	}
 }
