@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
 namespace ChocAn
 {
@@ -15,6 +10,7 @@ namespace ChocAn
 		public string City { get; private set; }
 		public string State { get; private set; }
 		public string Zip { get; private set; }
+		public bool Enabled { get; private set; }
 
 		public Member()
 		{
@@ -24,9 +20,10 @@ namespace ChocAn
 			City = "";
 			State = "";
 			Zip = "";
+			Enabled = true;
 		}
 
-		public Member(string name, string number, string address, string city, string state, string zip)
+		public Member(string name, string number, string address, string city, string state, string zip, bool enabled)
 		{
 			Name = name;
 			Number = number;
@@ -34,6 +31,7 @@ namespace ChocAn
 			City = city;
 			State = state;
 			Zip = zip;
+			Enabled = enabled;
 		}
 
 		public void Save(XElement parentNode)
@@ -44,7 +42,8 @@ namespace ChocAn
 				new XElement("Address", Address),
 				new XElement("City", City),
 				new XElement("State", State),
-				new XElement("Zip", Zip));
+				new XElement("Zip", Zip),
+				new XElement("Enabled", Enabled));
 		}
 
 		public void Load(XElement parentNode)
@@ -70,6 +69,9 @@ namespace ChocAn
 						break;
 					case "Zip":
 						Zip = iChild.Value;
+						break;
+					case "Enabled":
+						Enabled = bool.Parse(iChild.Value);
 						break;
 				}
 			}

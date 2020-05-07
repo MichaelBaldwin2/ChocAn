@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ChocAn
 {
@@ -22,12 +10,11 @@ namespace ChocAn
 	public partial class MainWindow : Window
 	{
 		private Regex numOnlyRegex = new Regex("[^0-9.-]+");
-		ChocAnDataCenter dataCenter;
 
 		public MainWindow()
 		{
 			InitializeComponent();
-			dataCenter = new ChocAnDataCenter("C:/Temp/ChocAnDB.xml");
+			DataCenter.Open(Directory.GetCurrentDirectory() + "/ChocAnDB.xml");
 		}
 
 		private void btnProviderProLogin_Click(object sender, RoutedEventArgs e)
@@ -123,15 +110,15 @@ namespace ChocAn
 		private void btnNewProvider_Click(object sender, RoutedEventArgs e)
 		{
 			// Check all the inputs
-			var provider = new Provider(inProviderName.Text, inProviderNumber.Text, inProviderAddress.Text, inProviderCity.Text, inProviderState.Text, inProviderZip.Text);
-			dataCenter.AddNewProvider(provider);
+			var provider = new Provider(inProviderName.Text, inProviderNumber.Text, inProviderAddress.Text, inProviderCity.Text, inProviderState.Text, inProviderZip.Text, true);
+			DataCenter.WriteProviderInfo(provider);
 		}
 
 		private void btnNewMember_Click(object sender, RoutedEventArgs e)
 		{
 			// Check all the inputs
-			var member = new Member(inMemberName.Text, inMemberNumber.Text, inMemberAddress.Text, inMemberCity.Text, inMemberState.Text, inMemberZip.Text);
-			dataCenter.AddNewMember(member);
+			var member = new Member(inMemberName.Text, inMemberNumber.Text, inMemberAddress.Text, inMemberCity.Text, inMemberState.Text, inMemberZip.Text, true);
+			DataCenter.WriteMemberInfo(member);
 		}
 
 		private void btnMemberProLogin_Click(object sender, RoutedEventArgs e)
