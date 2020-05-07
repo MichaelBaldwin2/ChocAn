@@ -14,8 +14,7 @@ namespace ChocAn
 				Process.Start(fileName);
 			}
 		}
-
-
+		
 		/// <summary>
 		/// Will generate a summary report for the total number of providers, total number of consultations, total number of fees
 		/// </summary>
@@ -123,7 +122,7 @@ namespace ChocAn
 					foreach (Record iRecord in allRecords)
 					{
 						input.Write("\n");
-						input.Write("Service Date: " + iRecord.ServiceDate + "\n" + "Service Provider: " + iRecord.ProviderNumber + "\n" + "Service Name: " + iRecord.ServiceCode + "\n");
+						input.Write("Service Date: " + iRecord.ServiceDate + "\n" + "Service Provider: " + iRecord.ProviderNumber + "\n" + "Service Name: " + iRecord.Service.Name + "\n");
 					}
 				}
 			}
@@ -166,6 +165,26 @@ namespace ChocAn
 				{
 					output.Write("Total number of consultations with members: 0\n");
 					output.Write("Total fees for the week: $0\n");
+				}
+			}
+
+			OpenFile(fileName);
+		}
+
+		/// <summary>
+		/// Writes the providerDirectory to ProviderDirectory.txt. This is used for when the provider requests the ProviderDirectory
+		/// </summary>
+		public static void PrintProviderDirectory()
+		{
+			var allServices = DataCenter.RequestAllServices();
+
+			var fileName = "ProviderDirectory.txt";
+
+			using (var output = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
+			{
+				foreach (var iService in allServices)
+				{
+					output.WriteLine("Service Name: " + iService.Name + "," + " Service Code: " + iService.Code + "," + " Service Fee: $" + iService.Fee + "\n");
 				}
 			}
 
