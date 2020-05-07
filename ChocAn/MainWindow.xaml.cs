@@ -169,10 +169,11 @@ namespace ChocAn
 			OperatorLoginPanel.Visibility	= Visibility.Hidden;
 			ProfessionPanel.Visibility		= Visibility.Visible;
 
-			ProviderPanel.Visibility = Visibility.Hidden;
-			OperatorPanel.Visibility = Visibility.Hidden;
-			ManagerPanel.Visibility	 = Visibility.Hidden;
-			MemberPanel.Visibility   = Visibility.Hidden;
+			ProviderPanel.Visibility			= Visibility.Hidden;
+			OperatorPanel.Visibility			= Visibility.Hidden;
+			OperatorEditMembersPanel.Visibility = Visibility.Hidden;
+			ManagerPanel.Visibility				= Visibility.Hidden;
+			MemberPanel.Visibility				= Visibility.Hidden;
 
 			inMemberID.Clear();
 			inProviderID.Clear();
@@ -184,17 +185,17 @@ namespace ChocAn
 
 		private void btnGenerateSummaryReport_Click(object sender, RoutedEventArgs e) // Generate Summary Report
 		{
-			GenerateReport.generateSummaryReport();
+			//GenerateReport.generateSummaryReport();
 		}
 
 		private void btnGenerateMemberReport_Click(object sender, RoutedEventArgs e)
 		{
-			GenerateReport.generateMemberReport();
+			//GenerateReport.generateMemberReport();
 		}
 
 		private void btnGenerateProviderReport_Click(object sender, RoutedEventArgs e)
 		{
-			GenerateReport.generateProviderReport();
+			//GenerateReport.generateProviderReport();
 		}
 
 		private void btnGenerateAllMemberReports_Click(object sender, RoutedEventArgs e)
@@ -222,7 +223,23 @@ namespace ChocAn
 
 		}
 
-		private void btnPayFees_Click(object sender, RoutedEventArgs e)
+		private void btnMemberPayDues_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnMemberPayService_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnOperatorEditMembers_Click(object sender, RoutedEventArgs e)
+		{
+			OperatorEditMembersPanel.Visibility = Visibility.Visible;
+			OperatorPanel.Visibility = Visibility.Hidden;
+		}
+		
+		private void btnOperatorRunAccountingProcedure_Click(object sender, RoutedEventArgs e)
 		{
 
 		}
