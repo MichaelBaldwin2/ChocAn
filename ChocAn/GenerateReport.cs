@@ -14,8 +14,7 @@ namespace ChocAn
 				Process.Start(fileName);
 			}
 		}
-
-
+		
 		/// <summary>
 		/// Will generate a summary report for the total number of providers, total number of consultations, total number of fees
 		/// </summary>
@@ -123,7 +122,7 @@ namespace ChocAn
 					foreach (Record iRecord in allRecords)
 					{
 						input.Write("\n");
-						input.Write("Service Date: " + iRecord.ServiceDate + "\n" + "Service Provider: " + iRecord.ProviderNumber + "\n" + "Service Name: " + iRecord.ServiceCode + "\n");
+						input.Write("Service Date: " + iRecord.ServiceDate + "\n" + "Service Provider: " + iRecord.ProviderNumber + "\n" + "Service Name: " + iRecord.Service.Name + "\n");
 					}
 				}
 			}
