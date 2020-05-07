@@ -40,7 +40,7 @@ namespace ChocAn
 
         private void btnOperatorRunAccountingProcedure_Click(object sender, RoutedEventArgs e)
         {
-
+            GenerateReport.GenerateSummaryReport("MainAccountProcedure");
         }
 
         private void btnGenerateSummaryReport_Click(object sender, RoutedEventArgs e)
