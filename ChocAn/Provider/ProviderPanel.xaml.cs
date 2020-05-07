@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,7 +27,9 @@ namespace ChocAn
 
         private void btnValidateMember_Click(object sender, RoutedEventArgs e)
         {
-
+            MemberInfoPrompt memberInfoPromptWindow = new MemberInfoPrompt();
+            memberInfoPromptWindow.Show();
+            this.Close();
         }
 
         private void btnBillChocAn_Click(object sender, RoutedEventArgs e)
