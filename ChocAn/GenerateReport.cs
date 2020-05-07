@@ -171,5 +171,23 @@ namespace ChocAn
 
 			OpenFile(fileName);
 		}
+
+		/// <summary>
+		/// Writes the providerDirectory to ProviderDirectory.txt. This is used for when the provider requests the ProviderDirectory
+		/// </summary>
+		public static void PrintProviderDirectory()
+		{
+			var allServices = DataCenter.RequestAllServices();
+
+			var fileName = "ProviderDirectory.txt";
+
+			using (var output = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
+			{
+				foreach (var iService in allServices)
+				{
+					output.WriteLine("Service Name: " + iService.Name + "," + " Service Code: " + iService.Code + "," + " Service Fee: $" + iService.Fee + "\n");
+				}
+			}
+		}
 	}
 }
