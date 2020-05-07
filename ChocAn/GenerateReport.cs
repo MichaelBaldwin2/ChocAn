@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -6,6 +7,15 @@ namespace ChocAn
 {
 	public static class GenerateReport
 	{
+		private static void OpenFile(string fileName)
+		{
+			if (File.Exists(fileName))
+			{
+				Process.Start(fileName);
+			}
+		}
+
+
 		/// <summary>
 		/// Will generate a summary report for the total number of providers, total number of consultations, total number of fees
 		/// </summary>
@@ -41,6 +51,8 @@ namespace ChocAn
 					output.Write("Total Number of Fees: $" + totalFee + "\n");
 				}
 			}
+
+			OpenFile(fileName);
 		}
 
 		/// <summary>
@@ -97,9 +109,9 @@ namespace ChocAn
 		public static void PrintMemberReport(Member member, string name)
 		{
 			name = name.Replace("\\s+", "");
-			var filename = name + ".txt";
+			var fileName = name + ".txt";
 
-			using (StreamWriter input = new StreamWriter(new FileStream(filename, FileMode.OpenOrCreate)))
+			using (StreamWriter input = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
 			{
 				input.Write("Member Name: " + member.Name + "\n" + "Member Number: " + member.Number + "\n" +
 					"Member Address: " + member.Address + "\n" + "Member City: " + member.City +
@@ -115,6 +127,8 @@ namespace ChocAn
 					}
 				}
 			}
+
+			OpenFile(fileName);
 		}
 
 		/// <summary>
@@ -126,9 +140,9 @@ namespace ChocAn
 		{
 			name = name.Replace("\\s+", "");
 			double totalFee = 0;
-			string filename = name + ".txt";
+			string fileName = name + ".txt";
 
-			using (var output = new StreamWriter(new FileStream(filename, FileMode.OpenOrCreate)))
+			using (var output = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
 			{
 				output.Write("Provider Name: " + provider.Name + "\n" + "Provider Number: " + provider.Number + "\n" + "Provider Address: " + provider.Address +
 					"\n" + "Provider City: " + provider.City + "\n" + "Provider State: " + provider.State + "\n" + "Provider Zip Code: " + provider.Zip + "\n");
@@ -154,6 +168,8 @@ namespace ChocAn
 					output.Write("Total fees for the week: $0\n");
 				}
 			}
+
+			OpenFile(fileName);
 		}
 	}
 }
