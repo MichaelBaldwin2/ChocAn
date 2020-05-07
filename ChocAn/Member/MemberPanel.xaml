@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChocAn"
         mc:Ignorable="d"
-        Title="Member Panel" Height="450" Width="800">
+        Title="Member Panel" Height="450" Width="800" Icon="/ChocAn;component/img/ChocAnLogoMin.png">
     <Grid x:Name="MemberPanelGrid" HorizontalAlignment="Left" Background="#FFD9D0C3" VerticalAlignment="Top" Height="420" Width="793">
         <Label x:Name="lblMemberPanel" Content="Welcome, Valued ChocAn Member!" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="220,40,178,0" RenderTransformOrigin="0.494,0.962" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara" Width="395"/>
         <Button x:Name="btnMemberBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="347,347,0,0" Click="btnBackToMain_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>

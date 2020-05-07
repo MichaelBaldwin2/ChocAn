@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChocAn"
         mc:Ignorable="d"
-        Title="Member Login" Height="450" Width="800">
+        Title="Member Login" Height="450" Width="800" Icon="/ChocAn;component/img/ChocAnLogoMin.png">
     <Grid x:Name="MemberLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFD9D0C3" Margin="0,0,0.6,0" Width="793" Height="420">
         <Grid.RowDefinitions>
             <RowDefinition Height="19*"/>

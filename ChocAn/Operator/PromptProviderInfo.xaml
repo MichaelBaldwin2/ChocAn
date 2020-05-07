@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Generate Report - Provider Info" Height="446.4" Width="518.2">
+        Title="Generate Report - Provider Info" Height="446.4" Width="518.2" Icon="/ChocAn;component/img/ChocAnLogoMin.png">
     <Grid x:Name="ProviderInfoPrompt" HorizontalAlignment="Center" VerticalAlignment="Top" Height="419" Margin="1,0,-0.4,0" Width="793" Background="#FFD9D0C3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="190*"/>

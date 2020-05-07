@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChocAn"
         mc:Ignorable="d"
-        Title="Manager Login" Height="450" Width="800">
+        Title="Manager Login" Height="450" Width="800" Icon="/ChocAn;component/img/ChocAnLogoMin.png">
     <Grid x:Name="ManagerLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFD9D0C3" Margin="0,0,0.6,0" Width="793" Height="420">
         <PasswordBox x:Name="inManagerID" Background="#FFEAE5DF" Width="140" Margin="434,159,209,231" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
         <Label x:Name="lblManagerIDInputError" HorizontalAlignment="Center" Foreground="Red" Margin="180,315,148,23" Width="455" RenderTransformOrigin="0.495,0.273" FontWeight="Bold" FontFamily="Candara" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>

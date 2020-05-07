@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChocAn"
         mc:Ignorable="d"
-        Title="PromptMemberInfo" Height="450" Width="800">
+        Title="PromptMemberInfo" Height="450" Width="800" Icon="/ChocAn;component/img/ChocAnLogoMin.png">
     <Grid x:Name="ProviderInfoPrompt" HorizontalAlignment="Center" VerticalAlignment="Top" Height="419" Margin="1,0,-0.4,0" Width="793" Background="#FFD9D0C3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="190*"/>

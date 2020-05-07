@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChocAn"
         mc:Ignorable="d"
-        Title="Operator Login" Height="450" Width="800">
+        Title="Operator Login" Height="450" Width="800" Icon="/ChocAn;component/img/ChocAnLogoMin.png">
     <Grid x:Name="OperatorLoginPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Height="419" Margin="1,0,-0.4,0" Width="793" Background="#FFD9D0C3">
         <Image HorizontalAlignment="Left" Height="75" Margin="372,45,0,0" VerticalAlignment="Top" Width="75" Source="/ChocAn;component/img/ChocAnLogoMin.png"/>
         <Label x:Name="lblOperatorLogin" Content="Operator Login ID" HorizontalAlignment="Center" FontSize="16" Margin="206,159,373,231" HorizontalContentAlignment="Center" FontFamily="Candara" Height="30" VerticalAlignment="Center" Width="204" VerticalContentAlignment="Center"/>
