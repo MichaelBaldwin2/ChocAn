@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
 namespace ChocAn
 {
@@ -15,6 +10,7 @@ namespace ChocAn
 		public string MemberNumber { get; private set; }
 		public string ServiceCode { get; private set; }
 		public string Comments { get; private set; }
+		public float Fee { get; private set; }
 
 		public Record()
 		{
@@ -24,9 +20,10 @@ namespace ChocAn
 			MemberNumber = "";
 			ServiceCode = "";
 			Comments = "";
+			Fee = 0;
 		}
 
-		public Record(string currentDate, string serviceDate, string providerNumber, string memberNumber, string serviceCode, string comments)
+		public Record(string currentDate, string serviceDate, string providerNumber, string memberNumber, string serviceCode, string comments, float fee)
 		{
 			CurrentDate = currentDate;
 			ServiceDate = serviceDate;
@@ -34,6 +31,7 @@ namespace ChocAn
 			MemberNumber = memberNumber;
 			ServiceCode = serviceCode;
 			Comments = comments;
+			Fee = fee;
 		}
 
 		public void Save(XElement parentNode)
@@ -44,7 +42,8 @@ namespace ChocAn
 				new XElement("ProviderNumber", ProviderNumber),
 				new XElement("MemberNumber", MemberNumber),
 				new XElement("ServiceCode", ServiceCode),
-				new XElement("Comments", Comments));
+				new XElement("Comments", Comments),
+				new XElement("Fee", Fee));
 		}
 
 		public void Load(XElement parentNode)
@@ -70,6 +69,9 @@ namespace ChocAn
 						break;
 					case "Comments":
 						Comments = iChild.Value;
+						break;
+					case "Fee":
+						Fee = float.Parse(iChild.Value);
 						break;
 				}
 			}

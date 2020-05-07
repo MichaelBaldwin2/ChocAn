@@ -1,188 +1,160 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace ChocAn
 {
-    class GenerateReport
-    {
-        /*
-         * generateSummaryReport() will generate a summary report for 
-         * the total number of providers,
-         * total number of consultations,
-         * total number of fees
-         */
-        public static void generateSummaryReport(String name)
-        {
-            List<ProviderAccounts> providers = DirectoryDB.ReadProviders();
+	public static class GenerateReport
+	{
+		/// <summary>
+		/// Will generate a summary report for the total number of providers, total number of consultations, total number of fees
+		/// </summary>
+		/// <param name="name">Name of the report</param>
+		public static void GenerateSummaryReport(string name)
+		{
+			var allProviders = DataCenter.RequestAllProviders();
 
-            string fileName = "writtenFiles/ServiceRecords/" + name + ".txt";
-            double totalFee = 0;
-            int totalConsults = 0;
+			var fileName = "writtenFiles/ServiceRecords/" + name + ".txt";
+			float totalFee = 0;
+			int totalConsults = 0;
 
-            StreamWriter output = new StreamWriter(fileName);
-            foreach(ProviderAccounts pa in providers)
-            {
-                List<ServiceRecord> sr = pa.getServicesProvided();
-                output.Write("Provider Name: " + pa.getName() + ",");
-                if(sr == null)
-                {
-                    output.Write(" Number of Consultations: 0" + "," + " Fees: $0\n");
-                }
-                else
-                {
-                    output.Write(" Number of Consultations: " + pa.getNumberServices() + ",");
-                    output.Write(" Fees: $" + pa.getTotalFees(sr) + "\n");
-                    totalConsults = totalConsults + pa.getNumberServices();
-                    totalFee = totalFee + pa.getTotalFees(sr);
-                }
-                output.Write("\n");
-                output.Write("Total Number of Providers: " + providers.Count() + "\n");
-                output.Write("Total Number of Consultations: " + totalConsults + "\n");
-                output.Write("Total Number of Fees: $" + totalFee + "\n");
-                output.Close();
-            }
-            // show message: "The summary report was successfully generated and stored in "+name+".txt"
-        }
+			using (var output = new StreamWriter(fileName))
+			{
+				foreach (var iProvider in allProviders)
+				{
+					var allRecords = DataCenter.RequestAllRecordsFromProvider(iProvider.Number);
+					output.Write("Provider Name: " + iProvider.Name + ",");
+					if (allRecords == null)
+					{
+						output.Write(" Number of Consultations: 0" + "," + " Fees: $0\n");
+					}
+					else
+					{
+						output.Write(" Number of Consultations: " + allRecords.Count + ",");
+						output.Write(" Fees: $" + DataCenter.RequestAllRecordsFromProvider(iProvider.Number).Sum(p => p.Fee) + "\n");
+						totalConsults += allRecords.Count;
+						totalFee += DataCenter.RequestAllRecordsFromProvider(iProvider.Number).Sum(p => p.Fee);
+					}
+					output.Write("\n");
+					output.Write("Total Number of Providers: " + allProviders.Count() + "\n");
+					output.Write("Total Number of Consultations: " + totalConsults + "\n");
+					output.Write("Total Number of Fees: $" + totalFee + "\n");
+					output.Close();
+				}
+			}
+		}
 
-        /*
-         * generateMemberReport() will generate a member report used by the manager
-         */
-        public static void generateMemberReport(int number)
-        {
-            List<MemberAccounts> members = DirectoryDB.ReadMember();
+		/// <summary>
+		/// Will generate a member report used by the manager
+		/// </summary>
+		/// <param name="number">The member number</param>
+		public static void GenerateMemberReport(string number)
+		{
+			var member = DataCenter.RequestMemberInfo(number);
+			PrintMemberReport(member, member.Name);
+		}
 
-            foreach(MemberAccounts ma in members)
-            {
-                if (ma.getNumber() == number)
-                {
-                    printMemberReport(ma, ma.getName());
-                    //show message: "The member report was successfully generated and stored in " + ma.getName().replaceAll("\\s+", "") + ".txt"
-                    return;
-                }
+		/// <summary>
+		/// Will generate a provider report used by the manager
+		/// </summary>
+		/// <param name="number">The provider number</param>
+		public static void GenerateProviderReport(string number)
+		{
+			var provider = DataCenter.RequestProviderInfo(number);
+			PrintProviderReport(provider, provider.Name);
+		}
 
-                // show message: "The member (Number: " + number + ") does not exist"
-                return;
-            }
+		/// <summary>
+		/// Generate a report for all members
+		/// </summary>
+		public static void GenerateAllMemberReports()
+		{
+			var allMembers = DataCenter.RequestAllMembers();
 
+			foreach (var iMember in allMembers)
+			{
+				PrintMemberReport(iMember, iMember.Name);
+			}
+		}
 
-        }
+		/// <summary>
+		/// Generate a report for all providers
+		/// </summary>
+		public static void GenerateAllProviderReports()
+		{
+			var allProviders = DataCenter.RequestAllProviders();
 
-        /*
-         * generateProviderReport() generate a provider report used by the manager
-         */
-        public static void generateProviderReport(int number)
-        {
-            List<ProviderAccounts> providers = DirectoryDB.ReadProviders();
+			foreach (var iProvider in allProviders)
+			{
+				PrintProviderReport(iProvider, iProvider.Name);
+			}
+		}
 
-            foreach(ProviderAccounts pa in providers)
-            {
-                if(pa.getNumber() == number)
-                {
-                    printProviderReport(pa, pa.getName());
-                    // show message : "The provider report was successfully generated and sorted in " + pa.getName().replaceAll("\\s+", "")+".txt")
-                    return;
-                }
-                // show message: "The provider (Number: " + number + ") does not exist"
-                return;
-            }
-        }
+		/// <summary>
+		/// Print member report
+		/// </summary>
+		/// <param name="member">Member object</param>
+		/// <param name="name">Name of the report to generate</param>
+		public static void PrintMemberReport(Member member, String name)
+		{
+			name = name.Replace("\\s+", "");
+			var filename = "writtenFiles/MemberReports/" + name + ".txt";
 
-        /*
-         * generateAllMemberReports() will generate a report for all members 
-         */
-        public static void generateAllMemberReports()
-        {
-            List<MemberAccounts> members = DirectoryDB.ReadMember();
+			using (StreamWriter input = new StreamWriter(filename))
+			{
+				input.Write("Member Name: " + member.Name + "\n" + "Member Number: " + member.Number + "\n" +
+					"Member Address: " + member.Address + "\n" + "Member City: " + member.City +
+					"\n" + "Member State: " + member.State + "\n" + "Member Zip Code: " + member.Zip + "\n");
 
-            foreach (MemberAccounts ma in members)
-            {
-                printMemberReport(ma, ma.getName());
-            }
-            // show message: "All member reports successfully generated and stored in writtenFiles/MemberReports"
-        }
+				var allRecords = DataCenter.RequestAllRecordsFromMember(member.Number);
+				if (allRecords != null)
+				{
+					foreach (Record iRecord in allRecords)
+					{
+						input.Write("\n");
+						input.Write("Service Date: " + iRecord.ServiceDate + "\n" + "Service Provider: " + iRecord.ProviderNumber + "\n" + "Service Name: " + iRecord.ServiceCode + "\n");
+					}
+				}
+			}
+		}
 
-        /*
-         * generateAllProviderReports() will generate a report for all providers
-         */
-        public static void generateAllProviderReports()
-        {
-            List<ProviderAccounts> providers = DirectoryDB.ReadProviders();
+		/// <summary>
+		/// Print the provider report
+		/// </summary>
+		/// <param name="provider">Provider object</param>
+		/// <param name="name">Name of the report to generate</param>
+		public static void PrintProviderReport(Provider provider, string name)
+		{
+			name = name.Replace("\\s+", "");
+			double totalFee = 0;
+			string filename = "writtenFiles/ProviderReports/" + name + ".txt";
 
-            foreach(ProviderAccounts pa in providers)
-            {
-                printProviderReport(pa, pa.getName());
-            }
+			using (var output = new StreamWriter(filename))
+			{
+				output.Write("Provider Name: " + provider.Name + "\n" + "Provider Number: " + provider.Number + "\n" + "Provider Address: " + provider.Address +
+					"\n" + "Provider City: " + provider.City + "\n" + "Provider State: " + provider.State + "\n" + "Provider Zip Code: " + provider.Zip + "\n");
 
-            // show message: "All provider reports successfully generated and stored in writtenFiles/ProviderReports"
-            return;
-        }
-
-        /*
-         * printMemberReport() prints the member report 
-         */
-         public static void printMemberReport(MemberAccounts member, String name)
-        {
-            name = name.Replace("\\s+", "");
-            string filename = "writtenFiles/MemberReports/" + name + ".txt";
-
-            //sort(member.getServicesProvided(), ServiceRecord.ServiceDateComparator)
-
-            StreamWriter input = new StreamWriter(filename);
-            input.Write("Member Name: " + member.getName() + "\n" + "Member Number: " + member.getNumber() + "\n" + 
-                "Member Address: " + member.getAddress() + "\n" + "Member City: " + member.getCity() + 
-                "\n" + "Member State: " + member.getState() + "\n" + "Member Zip Code: " + member.getZipCode() + "\n");
-
-            List<ServiceRecord> sr = member.getServicesProvided();
-            if(sr != null)
-            {
-                foreach (ServiceRecord service in sr)
-                {
-                    input.Write("\n");
-                    input.Write("Service Date: " + service.getDateOfService() + "\n" + "Service Provider: " + service.getProviderName(service.getProviderNumber()) + 
-                        "\n" + "Service Name: " + service.getServiceName(service.getServiceCode()) + "\n");
-                }
-            }
-            input.Close();
-
-        }
-
-        /*
-         * printProviderReport() prints the provider report
-         */
-         public static void printProviderReport(ProviderAccounts provider, String name)
-        {
-            name = name.Replace("\\s+", "");
-            double totalFee = 0;
-            string filename = "writtenFiles/ProviderReports/" + name + ".txt";
-
-            StreamWriter input = new StreamWriter(filename);
-            input.Write("Provider Name: " + provider.getName() + "\n" + "Provider Number: " + provider.getNumber() + "\n" + "Provider Address: " + provider.getAddress() + 
-                "\n" + "Provider City: " + provider.getCity() + "\n" + "Provider State: " + provider.getState() + "\n" + "Provider Zip Code: " + provider.getZipCode() + "\n");
-
-            List<ServiceRecord> sr = provider.getServicesProvided();
-            if(sr != null)
-            {
-                foreach(ServiceRecord service in sr)
-                {
-                    input.Write("\n");
-                    input.Write("Service Date: " + service.getDateOfService() + "\n" + "Date Data Was Received: " + service.getCurrentDateTime() + 
-                        "\n" + "Member Name: " + service.getMemberName(service.getMemberNumber()) + 
-                        "\n" + "Member Number: " + service.getMemberNumber() + "\n" + "Service Code: " + service.getServiceCode() + 
-                        "\n" + "Fee to be paid: " + service.getServiceFee(service.getServiceCode()) + "\n");
-                    totalFee = totalFee + service.getServiceFee(service.getServiceCode());
-                }
-                input.Write("Total number of consultations with members: " + sr.Count() + "\n");
-                input.Write("Total fees for the week: $" + totalFee + "\n");
-            }
-            else
-            {
-                input.Write("Total number of consultations with members: 0\n");
-                input.Write("Total fees for the week: $0\n");
-            }
-            input.Close();
-        }
-
-    }
+				var allRecords = DataCenter.RequestAllRecordsFromProvider(provider.Number);
+				if (allRecords != null)
+				{
+					foreach (var iRecord in allRecords)
+					{
+						output.Write("\n");
+						output.Write("Service Date: " + iRecord.ServiceDate + "\n" + "Date Data Was Received: " + iRecord.CurrentDate +
+							"\n" + "Member Name: " + DataCenter.RequestMemberInfo(iRecord.MemberNumber).Name +
+							"\n" + "Member Number: " + iRecord.MemberNumber + "\n" + "Service Code: " + iRecord.ServiceCode +
+							"\n" + "Fee to be paid: " + DataCenter.RequestServiceInfoByNumber(iRecord.ServiceCode).Fee + "\n");
+						totalFee = totalFee + DataCenter.RequestServiceInfoByNumber(iRecord.ServiceCode).Fee;
+					}
+					output.Write("Total number of consultations with members: " + allRecords.Count() + "\n");
+					output.Write("Total fees for the week: $" + totalFee + "\n");
+				}
+				else
+				{
+					output.Write("Total number of consultations with members: 0\n");
+					output.Write("Total fees for the week: $0\n");
+				}
+			}
+		}
+	}
 }

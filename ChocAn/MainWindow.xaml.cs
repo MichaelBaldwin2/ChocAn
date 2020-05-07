@@ -14,7 +14,7 @@ namespace ChocAn
 		public MainWindow()
 		{
 			InitializeComponent();
-			DataCenter.Open(Directory.GetCurrentDirectory() + "/ChocAnDB.xml");
+			DataCenter.Open("ChocAnDB.xml");
 		}
 
 		private void btnProviderProLogin_Click(object sender, RoutedEventArgs e)
@@ -172,7 +172,7 @@ namespace ChocAn
 
 		private void btnGenerateSummaryReport_Click(object sender, RoutedEventArgs e) // Generate Summary Report
 		{
-			//GenerateReport.generateSummaryReport();
+			GenerateReport.GenerateSummaryReport("SummaryReport.txt");
 		}
 
 		private void btnGenerateMemberReport_Click(object sender, RoutedEventArgs e)
@@ -187,12 +187,12 @@ namespace ChocAn
 
 		private void btnGenerateAllMemberReports_Click(object sender, RoutedEventArgs e)
 		{
-			GenerateReport.generateAllMemberReports();
+			GenerateReport.GenerateAllMemberReports();
 		}
 
 		private void btnGenerateAllProviderReports_Click(object sender, RoutedEventArgs e)
 		{
-			GenerateReport.generateAllProviderReports();
+			GenerateReport.GenerateAllProviderReports();
 		}
 
 		private void btnValidateMember_Click(object sender, RoutedEventArgs e)
@@ -233,7 +233,6 @@ namespace ChocAn
 
 		private void btnRunServicesReport_Click(object sender, RoutedEventArgs e)
 		{
-
 		}
 	}
 }

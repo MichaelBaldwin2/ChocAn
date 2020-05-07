@@ -70,6 +70,26 @@ namespace ChocAn
 		}
 
 		/// <summary>
+		/// Requests service information
+		/// </summary>
+		/// <param name="memberNumber">The service number to search for</param>
+		/// <returns>A service if found, or null if not found</returns>
+		public static Service RequestServiceInfoByNumber(string serviceCode)
+		{
+			return RequestAllServices().Single(s => s.Code == serviceCode);
+		}
+
+		/// <summary>
+		/// Requests service information
+		/// </summary>
+		/// <param name="memberNumber">The service number to search for</param>
+		/// <returns>A service if found, or null if not found</returns>
+		public static Service RequestServiceInfoByName(string serviceName)
+		{
+			return RequestAllServices().Single(s => s.Code == serviceName);
+		}
+
+		/// <summary>
 		/// Request all the records from the database
 		/// </summary>
 		/// <returns>A list of records</returns>
@@ -123,6 +143,26 @@ namespace ChocAn
 			foreach (var xElem in allElems.Elements())
 			{
 				var record = new Member();
+				record.Load(xElem);
+				allRecords.Add(record);
+			}
+			return allRecords;
+		}
+
+		/// <summary>
+		/// Request all the members from the database
+		/// </summary>
+		/// <returns>A list of members</returns>
+		public static List<Service> RequestAllServices()
+		{
+			var allElems = XDoc.Element("Services");
+			if (allElems == null)
+				throw new ProviderNotFoundException("The service directory doesn't exist in the ChocAn DataBase. Please contact your system administrator to fix this!");
+
+			var allRecords = new List<Service>(allElems.Elements().Count());
+			foreach (var xElem in allElems.Elements())
+			{
+				var record = new Service();
 				record.Load(xElem);
 				allRecords.Add(record);
 			}

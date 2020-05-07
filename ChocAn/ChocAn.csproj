@@ -55,20 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DirectoryDB.cs" />
     <Compile Include="GenerateReport.cs" />
-    <Compile Include="IDNumber.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="MemberAccounts.cs" />
     <Compile Include="MemberNotFoundException.cs" />
     <Compile Include="Provider.cs" />
-    <Compile Include="ProviderAccounts.cs" />
-    <Compile Include="ProviderDirectoryEntry.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="ProviderNotFoundException.cs" />
     <Compile Include="Record.cs" />
     <Compile Include="RecordNotFoundException.cs" />
     <Compile Include="ServiceNotFoundException.cs" />
-    <Compile Include="ServiceRecord.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
