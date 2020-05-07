@@ -95,7 +95,7 @@ namespace ChocAn
 		/// <returns>A list of records</returns>
 		public static List<Record> RequestAllRecords()
 		{
-			var allElems = XDoc.Element("Records");
+			var allElems = XDoc.Root.Element("Records");
 			if (allElems == null)
 				throw new RecordNotFoundException("The Record directory doesn't exist in the ChocAn DataBase. Please contact your system administrator to fix this!");
 
@@ -115,7 +115,7 @@ namespace ChocAn
 		/// <returns>A list of providers</returns>
 		public static List<Provider> RequestAllProviders()
 		{
-			var allElems = XDoc.Element("Providers");
+			var allElems = XDoc.Root.Element("Providers");
 			if (allElems == null)
 				throw new ProviderNotFoundException("The provider directory doesn't exist in the ChocAn DataBase. Please contact your system administrator to fix this!");
 
@@ -135,7 +135,7 @@ namespace ChocAn
 		/// <returns>A list of members</returns>
 		public static List<Member> RequestAllMembers()
 		{
-			var allElems = XDoc.Element("Members");
+			var allElems = XDoc.Root.Element("Members");
 			if (allElems == null)
 				throw new ProviderNotFoundException("The member directory doesn't exist in the ChocAn DataBase. Please contact your system administrator to fix this!");
 
@@ -155,7 +155,7 @@ namespace ChocAn
 		/// <returns>A list of members</returns>
 		public static List<Service> RequestAllServices()
 		{
-			var allElems = XDoc.Element("Services");
+			var allElems = XDoc.Root.Element("Services");
 			if (allElems == null)
 				throw new ProviderNotFoundException("The service directory doesn't exist in the ChocAn DataBase. Please contact your system administrator to fix this!");
 

@@ -14,16 +14,16 @@ namespace ChocAn
 		{
 			var allProviders = DataCenter.RequestAllProviders();
 
-			var fileName = "writtenFiles/ServiceRecords/" + name + ".txt";
+			var fileName = name + ".txt";
 			float totalFee = 0;
 			int totalConsults = 0;
 
-			using (var output = new StreamWriter(fileName))
+			using (var output = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
 			{
 				foreach (var iProvider in allProviders)
 				{
 					var allRecords = DataCenter.RequestAllRecordsFromProvider(iProvider.Number);
-					output.Write("Provider Name: " + iProvider.Name + ",");
+					output.WriteLine("Provider Name: " + iProvider.Name + ",");
 					if (allRecords == null)
 					{
 						output.Write(" Number of Consultations: 0" + "," + " Fees: $0\n");
@@ -39,7 +39,6 @@ namespace ChocAn
 					output.Write("Total Number of Providers: " + allProviders.Count() + "\n");
 					output.Write("Total Number of Consultations: " + totalConsults + "\n");
 					output.Write("Total Number of Fees: $" + totalFee + "\n");
-					output.Close();
 				}
 			}
 		}
@@ -98,9 +97,9 @@ namespace ChocAn
 		public static void PrintMemberReport(Member member, String name)
 		{
 			name = name.Replace("\\s+", "");
-			var filename = "writtenFiles/MemberReports/" + name + ".txt";
+			var filename = name + ".txt";
 
-			using (StreamWriter input = new StreamWriter(filename))
+			using (StreamWriter input = new StreamWriter(new FileStream(filename, FileMode.OpenOrCreate)))
 			{
 				input.Write("Member Name: " + member.Name + "\n" + "Member Number: " + member.Number + "\n" +
 					"Member Address: " + member.Address + "\n" + "Member City: " + member.City +
@@ -127,9 +126,9 @@ namespace ChocAn
 		{
 			name = name.Replace("\\s+", "");
 			double totalFee = 0;
-			string filename = "writtenFiles/ProviderReports/" + name + ".txt";
+			string filename = name + ".txt";
 
-			using (var output = new StreamWriter(filename))
+			using (var output = new StreamWriter(new FileStream(filename, FileMode.OpenOrCreate)))
 			{
 				output.Write("Provider Name: " + provider.Name + "\n" + "Provider Number: " + provider.Number + "\n" + "Provider Address: " + provider.Address +
 					"\n" + "Provider City: " + provider.City + "\n" + "Provider State: " + provider.State + "\n" + "Provider Zip Code: " + provider.Zip + "\n");
