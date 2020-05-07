@@ -50,12 +50,16 @@ namespace ChocAn
 
         private void btnGenerateProviderReport_Click(object sender, RoutedEventArgs e)
         {
-
+            PromptProviderInfo promptProviderInfoWindow = new PromptProviderInfo();
+            promptProviderInfoWindow.Show();
+            this.Close();
         }
 
         private void btnGenerateMemberReport_Click(object sender, RoutedEventArgs e)
         {
-
+            PromptMemberInfo promptMemberInfoWindow = new PromptMemberInfo();
+            promptMemberInfoWindow.Show();
+            this.Close();
         }
 
         private void btnGenerateAllProviderReports_Click(object sender, RoutedEventArgs e)
