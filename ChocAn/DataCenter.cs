@@ -233,11 +233,12 @@ namespace ChocAn
 		public static void DeleteMemberAccount(string memberNumber)
 		{
 			var allElems = XDoc.Root.Element("Members");
-			var toDelete = allElems.Elements().Where(e => e.Element("Number").Name.ToString() == memberNumber).ToList();
+			var toDelete = allElems.Elements().Where(e => e.Element("Number").Value.ToString() == memberNumber).ToList();
 			foreach(var iNode in toDelete)
 				iNode.Remove();
 			XDoc.Save(FilePath);
 		}
+
 		/// <summary>
 		/// Deletes a provider account.
 		/// </summary>
@@ -245,10 +246,20 @@ namespace ChocAn
 		public static void DeleteProviderAccount(string providerNumber)
 		{
 			var allElems = XDoc.Root.Element("Providers");
-			var toDelete = allElems.Elements().Where(e => e.Element("Number").Name.ToString() == providerNumber).ToList();
+			var toDelete = allElems.Elements().Where(e => e.Element("Number").Value.ToString() == providerNumber).ToList();
 			foreach (var iNode in toDelete)
 				iNode.Remove();
 			XDoc.Save(FilePath);
+		}
+
+		/// <summary>
+		/// Validates that a member is actually active.
+		/// </summary>
+		/// <param name="memberNumber">The member number to look up</param>
+		/// <returns></returns>
+		public static bool ValidateMember(string memberNumber)
+		{
+			return RequestAllMembers().SingleOrDefault(m => m.Number == memberNumber).Enabled;
 		}
 	}
 }
