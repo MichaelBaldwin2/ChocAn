@@ -226,24 +226,29 @@ namespace ChocAn
 			XDoc.Save(FilePath);
 		}
 
-		public static void RunMainAccountingProcedure()
+		/// <summary>
+		/// Deletes a member account.
+		/// </summary>
+		/// <param name="memberNumber">The member number to search for and delete</param>
+		public static void DeleteMemberAccount(string memberNumber)
 		{
-
+			var allElems = XDoc.Root.Element("Members");
+			var toDelete = allElems.Elements().Where(e => e.Element("Number").Name.ToString() == memberNumber).ToList();
+			foreach(var iNode in toDelete)
+				iNode.Remove();
+			XDoc.Save(FilePath);
 		}
-
-		public static void SendListOfServices()
+		/// <summary>
+		/// Deletes a provider account.
+		/// </summary>
+		/// <param name="providerNumber">The provider number to search for and delete</param>
+		public static void DeleteProviderAccount(string providerNumber)
 		{
-
-		}
-
-		public static void SendProviderReports()
-		{
-
-		}
-
-		public static void GenerateProviderReports()
-		{
-
+			var allElems = XDoc.Root.Element("Providers");
+			var toDelete = allElems.Elements().Where(e => e.Element("Number").Name.ToString() == providerNumber).ToList();
+			foreach (var iNode in toDelete)
+				iNode.Remove();
+			XDoc.Save(FilePath);
 		}
 	}
 }
