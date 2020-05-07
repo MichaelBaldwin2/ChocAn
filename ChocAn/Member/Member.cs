@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace ChocAn
 {
@@ -11,6 +12,7 @@ namespace ChocAn
 		public string State { get; private set; }
 		public string Zip { get; private set; }
 		public bool Enabled { get; private set; }
+		public List<Record> ServicesRecieved { get { return DataCenter.RequestAllRecordsFromMember(Number); } }
 
 		public Member()
 		{

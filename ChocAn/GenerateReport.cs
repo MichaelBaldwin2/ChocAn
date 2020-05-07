@@ -94,7 +94,7 @@ namespace ChocAn
 		/// </summary>
 		/// <param name="member">Member object</param>
 		/// <param name="name">Name of the report to generate</param>
-		public static void PrintMemberReport(Member member, String name)
+		public static void PrintMemberReport(Member member, string name)
 		{
 			name = name.Replace("\\s+", "");
 			var filename = name + ".txt";
@@ -140,10 +140,10 @@ namespace ChocAn
 					{
 						output.Write("\n");
 						output.Write("Service Date: " + iRecord.ServiceDate + "\n" + "Date Data Was Received: " + iRecord.CurrentDate +
-							"\n" + "Member Name: " + DataCenter.RequestMemberInfo(iRecord.MemberNumber).Name +
+							"\n" + "Member Name: " + iRecord.Member.Name +
 							"\n" + "Member Number: " + iRecord.MemberNumber + "\n" + "Service Code: " + iRecord.ServiceCode +
-							"\n" + "Fee to be paid: " + DataCenter.RequestServiceInfoByNumber(iRecord.ServiceCode).Fee + "\n");
-						totalFee = totalFee + DataCenter.RequestServiceInfoByNumber(iRecord.ServiceCode).Fee;
+							"\n" + "Fee to be paid: " + iRecord.Service.Fee + "\n");
+						totalFee += iRecord.Service.Fee;
 					}
 					output.Write("Total number of consultations with members: " + allRecords.Count() + "\n");
 					output.Write("Total fees for the week: $" + totalFee + "\n");

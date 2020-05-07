@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace ChocAn
 {
@@ -14,6 +15,7 @@ namespace ChocAn
 		public string State { get; private set; }
 		public string Zip { get; private set; }
 		public bool Enabled { get; private set; }
+		public List<Record> ServicesProvided { get { return DataCenter.RequestAllRecordsFromProvider(Number); } }
 
 		/// <summary>
 		/// Default constructor. Needed for deserialization.

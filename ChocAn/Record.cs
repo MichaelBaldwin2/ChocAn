@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Linq;
+using System.Xml.Linq;
 
 namespace ChocAn
 {
@@ -11,6 +12,9 @@ namespace ChocAn
 		public string ServiceCode { get; private set; }
 		public string Comments { get; private set; }
 		public float Fee { get; private set; }
+		public Provider Provider { get { return DataCenter.RequestAllProviders().SingleOrDefault(p => p.Number == ProviderNumber); } }
+		public Member Member { get { return DataCenter.RequestAllMembers().SingleOrDefault(m => m.Number == MemberNumber); } }
+		public Service Service { get { return DataCenter.RequestAllServices().SingleOrDefault(s => s.Code == ServiceCode); } }
 
 		public Record()
 		{
