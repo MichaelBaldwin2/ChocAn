@@ -24,12 +24,16 @@ namespace ChocAn
             InitializeComponent();
         }
 
-        private void btnAddService_Click(object sender, RoutedEventArgs e)
+        private async void btnAddService_Click(object sender, RoutedEventArgs e)
         {
             Service service = DataCenter.RequestServiceInfoByNumber(inServiceCode.Text);
             Record newRecord = new Record(inCurrentDateTime.Text, inDateServiceProvided.Text, inProviderID.Text, inMemberID.Text, inServiceCode.Text, inComments.Text, service.Fee);
             DataCenter.WriteRecordInfo(newRecord);
             lblServiceAdded.Content = "Service added successfully";
+
+            await Task.Delay(2000);
+
+            btnCancel_Click(sender, e);
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
