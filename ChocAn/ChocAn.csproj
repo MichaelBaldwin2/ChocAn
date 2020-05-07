@@ -62,6 +62,9 @@
     <Compile Include="Manager\ManagerPanel.xaml.cs">
       <DependentUpon>ManagerPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Operator\MemberDeleteInfo.xaml.cs">
+      <DependentUpon>MemberDeleteInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Member\Member.cs" />
     <Compile Include="Member\MemberLogin.xaml.cs">
       <DependentUpon>MemberLogin.xaml</DependentUpon>
@@ -84,6 +87,9 @@
     </Compile>
     <Compile Include="Operator\PromptMemberInfo.xaml.cs">
       <DependentUpon>PromptMemberInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\ProviderDeleteInfo.xaml.cs">
+      <DependentUpon>ProviderDeleteInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Provider\Provider.cs" />
     <Compile Include="Provider\ProviderLogin.xaml.cs">
@@ -118,6 +124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Operator\MemberDeleteInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Member\MemberLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Operator\PromptMemberInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\ProviderDeleteInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

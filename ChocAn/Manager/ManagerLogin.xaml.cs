@@ -44,12 +44,6 @@ namespace ChocAn
 				return;
 			}
 
-			if (managerID != "0000")
-			{
-				lblManagerIDInputError.Content = "Incorrect Manager ID (Hint: It's '0000')";
-				return;
-			}
-
 			ManagerPanel managerPanelWindow = new ManagerPanel();
 			managerPanelWindow.Show();
 			this.Close();

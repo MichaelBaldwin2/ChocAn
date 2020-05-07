@@ -45,5 +45,19 @@ namespace ChocAn
             var member = new Member(inMemberName.Text, inMemberNumber.Text, inMemberAddress.Text, inMemberCity.Text, inMemberState.Text, inMemberZip.Text, true);
             DataCenter.WriteMemberInfo(member);
         }
+
+        private void btnDeleteProvider_Click(object sender, RoutedEventArgs e)
+        {
+            ProviderDeleteInfo providerDeleteInfoWindow = new ProviderDeleteInfo();
+            providerDeleteInfoWindow.Show();
+            this.Close();
+        }
+
+        private void btnDeleteMember_Click(object sender, RoutedEventArgs e)
+        {
+            MemberDeleteInfo memberDeleteInfoWindow = new MemberDeleteInfo();
+            memberDeleteInfoWindow.Show();
+            this.Close();
+        }
     }
 }

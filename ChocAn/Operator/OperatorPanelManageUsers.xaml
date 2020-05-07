@@ -9,6 +9,8 @@
     <Grid x:Name="OperatorEditUsersPanel" HorizontalAlignment="Left" Background="#FFD9D0C3" VerticalAlignment="Top" Height="420" Width="793">
         <Label x:Name="lblOperatorEditMembersPanel" Content="Operator Panel" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="312,28,313,0" RenderTransformOrigin="0.494,0.962" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara"/>
         <Button x:Name="btnOperatorEditMembersBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="333,352,-307,-170" Click="btnBackToMain_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
+        <Button x:Name="btnOperatorDeleteMember" Content="Delete Member" HorizontalAlignment="Left" VerticalAlignment="Top" Width="156" Height="24" Margin="484,301,0,0" Click="btnDeleteMember_Click" FontFamily="Candara" Background="#FFD9D0C3" FontWeight="Bold" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
+        <Button x:Name="btnOperatorDeleteProvider" Content="Delete Provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" Height="24" Margin="158,301,0,0" Click="btnDeleteProvider_Click" FontFamily="Candara" Background="#FFD9D0C3" FontWeight="Bold" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
 
         <StackPanel Margin="158,77,483,124" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label x:Name="lblNewProvider" Content="New Provider" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara"/>

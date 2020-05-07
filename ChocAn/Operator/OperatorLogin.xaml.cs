@@ -44,12 +44,6 @@ namespace ChocAn
                 return;
             }
 
-            if (operatorID != "0000")
-            {
-                lblOperatorIDInputError.Content = "Incorrect Operator ID (Hint: It's '0000')";
-                return;
-            }
-
             OperatorPanel operatorPanelWindow = new OperatorPanel();
             operatorPanelWindow.Show();
             this.Close();

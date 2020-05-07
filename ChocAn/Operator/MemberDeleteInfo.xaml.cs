@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,16 +17,16 @@ using System.Windows.Shapes;
 namespace ChocAn
 {
     /// <summary>
-    /// Interaction logic for PromptProviderInfo.xaml
+    /// Interaction logic for MemberDeleteInfo.xaml
     /// </summary>
-    public partial class PromptProviderInfo : Window
+    public partial class MemberDeleteInfo : Window
     {
         private Regex numOnlyRegex = new Regex("[^0-9.-]+");
-        public PromptProviderInfo()
+        public MemberDeleteInfo()
         {
             InitializeComponent();
         }
-
+        
         private void btnBackToMain_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -33,20 +34,24 @@ namespace ChocAn
             this.Close();
         }
 
-        private void btnProviderReportGenerate_Click(object sender, RoutedEventArgs e)
+        private async void btnMemberDelete_Click(object sender, RoutedEventArgs e)
         {
-            var providerNumber = inProviderID.Password;
-            var isProviderID = !numOnlyRegex.IsMatch(providerNumber);
+            var memberID = inMemberID.Password;
+            var isMemberID = !numOnlyRegex.IsMatch(memberID);
 
-            if (!isProviderID)
+            if (!isMemberID)
             {
-                lblProviderIDInputError.Content = "Provider ID must be numerical!";
+                lblMemberIDInputError.Content = "Member ID must be numerical!";
                 return;
             }
 
-            GenerateReport.GenerateProviderReport(providerNumber);
+            DataCenter.DeleteMemberAccount(memberID);
+            lblMemberIDInputError.Content = "Member successfully deleted";
+
+            await Task.Delay(2000);
+
             btnBackToMain_Click(sender, e);
-            
+
         }
     }
 }

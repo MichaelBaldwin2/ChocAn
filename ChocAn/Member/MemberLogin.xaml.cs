@@ -44,12 +44,6 @@ namespace ChocAn
                 return;
             }
 
-            if (memberID != "0000")
-            {
-                lblMemberIDInputError.Content = "Incorrect Member ID (Hint: It's '0000')";
-                return;
-            }
-
             MemberPanel memberPanelWindow = new MemberPanel();
             memberPanelWindow.Show();
             this.Close();

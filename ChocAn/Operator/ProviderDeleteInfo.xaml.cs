@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,12 +17,12 @@ using System.Windows.Shapes;
 namespace ChocAn
 {
     /// <summary>
-    /// Interaction logic for PromptProviderInfo.xaml
+    /// Interaction logic for ProviderDeleteInfo.xaml
     /// </summary>
-    public partial class PromptProviderInfo : Window
+    public partial class ProviderDeleteInfo : Window
     {
         private Regex numOnlyRegex = new Regex("[^0-9.-]+");
-        public PromptProviderInfo()
+        public ProviderDeleteInfo()
         {
             InitializeComponent();
         }
@@ -33,10 +34,10 @@ namespace ChocAn
             this.Close();
         }
 
-        private void btnProviderReportGenerate_Click(object sender, RoutedEventArgs e)
+        private async void btnProviderDelete_Click(object sender, RoutedEventArgs e)
         {
-            var providerNumber = inProviderID.Password;
-            var isProviderID = !numOnlyRegex.IsMatch(providerNumber);
+            var providerID = inProviderID.Password;
+            var isProviderID = !numOnlyRegex.IsMatch(providerID);
 
             if (!isProviderID)
             {
@@ -44,9 +45,12 @@ namespace ChocAn
                 return;
             }
 
-            GenerateReport.GenerateProviderReport(providerNumber);
+            DataCenter.DeleteProviderAccount(providerID);
+            lblProviderIDInputError.Content = "Provider successfully deleted";
+
+            await Task.Delay(2000);
+
             btnBackToMain_Click(sender, e);
-            
         }
     }
 }

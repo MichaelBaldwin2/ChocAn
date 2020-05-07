@@ -44,12 +44,6 @@ namespace ChocAn
                 return;
             }
 
-            if (providerNumber != "0000")
-            {
-                lblProviderIDInputError.Content = "Incorrect Provider ID (Hint: It's '0000')";
-                return;
-            }
-
             ProviderPanel providerPanelWindow = new ProviderPanel();
             providerPanelWindow.Show();
             this.Close();
