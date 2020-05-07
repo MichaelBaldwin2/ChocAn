@@ -45,5 +45,12 @@ namespace ChocAn
             mainWindow.Show();
             this.Close();
         }
+
+        private void btnAddService_Click(object sender, RoutedEventArgs e)
+        {
+            AddService addServiceWindow = new AddService();
+            addServiceWindow.Show();
+            this.Close();
+        }
     }
 }

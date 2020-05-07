@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Provider\AddService.xaml.cs">
+      <DependentUpon>AddService.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GenerateReport.cs" />
     <Compile Include="Manager\ManagerLogin.xaml.cs">
       <DependentUpon>ManagerLogin.xaml</DependentUpon>
@@ -103,6 +106,10 @@
     <Compile Include="Record.cs" />
     <Compile Include="RecordNotFoundException.cs" />
     <Compile Include="ServiceNotFoundException.cs" />
+    <Page Include="Provider\AddService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
