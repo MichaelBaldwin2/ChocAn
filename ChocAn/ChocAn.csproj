@@ -79,6 +79,12 @@
     <Compile Include="Operator\OperatorPanelManageUsers.xaml.cs">
       <DependentUpon>OperatorPanelManageUsers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Operator\PromptProviderInfo.xaml.cs">
+      <DependentUpon>PromptProviderInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\PromptMemberInfo.xaml.cs">
+      <DependentUpon>PromptMemberInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Provider\Provider.cs" />
     <Compile Include="Provider\ProviderLogin.xaml.cs">
       <DependentUpon>ProviderLogin.xaml</DependentUpon>
@@ -129,6 +135,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Operator\OperatorPanelManageUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\PromptProviderInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\PromptMemberInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
