@@ -31,7 +31,7 @@ namespace ChocAn
 
         private void btnBillChocAn_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Your bill has been sent. Thank you!");
         }
 
         private void btnProviderDirectory_Click(object sender, RoutedEventArgs e)
