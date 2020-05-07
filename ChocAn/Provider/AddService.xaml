@@ -18,14 +18,14 @@
         </StackPanel>
         <Button x:Name="btnAddService" Content="Add Service" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" Click="btnAddService_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" Height="26" FontWeight="Bold" Padding="1" Margin="449,299,0,0"/>
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" Click="btnCancel_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" Height="26" FontWeight="Bold" Padding="1" Margin="330,353,0,0"/>
-        <Label Content="Service Information" HorizontalAlignment="Left" Height="25" Margin="490,126,0,0" VerticalAlignment="Top" Width="138" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
-        <Label Content="Code" HorizontalAlignment="Left" Height="25" Margin="430,156,0,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" RenderTransformOrigin="0.351,0.608"/>
-        <Label x:Name="lblServiceCode" Content="" HorizontalAlignment="Left" Height="25" Margin="529,156,0,0" VerticalAlignment="Top" Width="118" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="Name" HorizontalAlignment="Left" Height="25" Margin="430,190,0,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" RenderTransformOrigin="0.351,0.608"/>
-        <Label x:Name="lblServiceName" Content="" HorizontalAlignment="Left" Height="25" Margin="529,190,0,0" VerticalAlignment="Top" Width="118" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label x:Name="lblServiceAdded" Content="" HorizontalAlignment="Left" Height="25" Margin="462,250,0,0" VerticalAlignment="Top" Width="198" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
-        <Label Content="Fee" HorizontalAlignment="Left" Height="25" Margin="430,220,0,0" VerticalAlignment="Top" Width="93" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" RenderTransformOrigin="0.351,0.608"/>
-        <Label x:Name="lblServiceFee" Content="" HorizontalAlignment="Left" Height="25" Margin="529,220,0,0" VerticalAlignment="Top" Width="118" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Service Information" HorizontalAlignment="Left" Height="25" Margin="457,108,0,0" VerticalAlignment="Top" Width="185" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+        <Label Content="Code" HorizontalAlignment="Left" Height="25" Margin="457,138,0,0" VerticalAlignment="Top" Width="61" VerticalContentAlignment="Center" RenderTransformOrigin="0.351,0.608"/>
+        <Label x:Name="lblServiceCode" Content="" HorizontalAlignment="Left" Height="25" Margin="524,138,0,0" VerticalAlignment="Top" Width="118" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="25" Margin="457,172,0,0" VerticalAlignment="Top" Width="61" VerticalContentAlignment="Center" RenderTransformOrigin="0.351,0.608"/>
+        <Label x:Name="lblServiceName" Content="" HorizontalAlignment="Left" Height="25" Margin="524,172,0,0" VerticalAlignment="Top" Width="118" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblServiceAdded" Content="" HorizontalAlignment="Left" Height="25" Margin="457,232,0,0" VerticalAlignment="Top" Width="198" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
+        <Label Content="Fee" HorizontalAlignment="Left" Height="25" Margin="457,202,0,0" VerticalAlignment="Top" Width="61" VerticalContentAlignment="Center" RenderTransformOrigin="0.351,0.608"/>
+        <Label x:Name="lblServiceFee" Content="" HorizontalAlignment="Left" Height="25" Margin="524,202,0,0" VerticalAlignment="Top" Width="118" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button x:Name="btnVerifyService" Content="Verify Service" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" Click="btnVerifyService_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C" Height="26" FontWeight="Bold" Padding="1" Margin="238,299,0,0"/>
 
     </Grid>
