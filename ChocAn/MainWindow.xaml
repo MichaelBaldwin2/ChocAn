@@ -102,10 +102,11 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="ManagerPanel" HorizontalAlignment="Left" Background="#FFD9D0C3" VerticalAlignment="Top" Height="420" Width="793" Visibility="Hidden">
+        <Grid x:Name="ManagerPanel" HorizontalAlignment="Left" Background="#FFD9D0C3" VerticalAlignment="Top" Height="420" Width="793" >
             <Label x:Name="lblManagerPanel" Content="Welcome, Valued ChocAn Manager!" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="220,40,178,0" RenderTransformOrigin="0.494,0.962" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Candara" Width="395"/>
             <Button x:Name="btnManagerBack" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Height="24" Margin="350,335,0,0" Click="btnBackToMain_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
             <Label x:Name="lblManagerGreeting" Content="What would you like to do today?" HorizontalAlignment="Center" Height="40" Margin="270,80,254,0" VerticalAlignment="Top" Width="269" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="btnRunServicesReport" Content="    Run Report of&#xD;&#xA;Services Provided" HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Height="40" Margin="330,195,0,0" Click="btnRunServicesReport_Click" FontFamily="Candara" Background="#FFD9D0C3" Foreground="#FF2B475C" BorderBrush="#FF2B475C"/>
         </Grid>
     </Grid>
 

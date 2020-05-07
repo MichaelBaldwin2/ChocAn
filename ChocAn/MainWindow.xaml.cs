@@ -243,5 +243,10 @@ namespace ChocAn
 		{
 
 		}
+
+		private void btnRunServicesReport_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
