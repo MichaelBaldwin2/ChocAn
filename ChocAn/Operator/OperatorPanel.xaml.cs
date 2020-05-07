@@ -45,7 +45,7 @@ namespace ChocAn
 
         private void btnGenerateSummaryReport_Click(object sender, RoutedEventArgs e)
         {
-
+            GenerateReport.GenerateSummaryReport("SummaryReport");
         }
 
         private void btnGenerateProviderReport_Click(object sender, RoutedEventArgs e)
@@ -60,12 +60,12 @@ namespace ChocAn
 
         private void btnGenerateAllProviderReports_Click(object sender, RoutedEventArgs e)
         {
-
+            GenerateReport.GenerateAllProviderReports();
         }
 
         private void btnGenerateAllMemberReports_Click(object sender, RoutedEventArgs e)
         {
-
+            GenerateReport.GenerateAllMemberReports();
         }
     }
 }
