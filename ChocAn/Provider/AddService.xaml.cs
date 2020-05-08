@@ -26,6 +26,12 @@ namespace ChocAn
 
         private async void btnAddService_Click(object sender, RoutedEventArgs e)
         {
+            if(!int.TryParse(inServiceCode.Text, out int _))
+            {
+                lblServiceAdded.Content = "Service code is not valid";
+                return;
+            }
+
             Service service = DataCenter.RequestServiceInfoByNumber(inServiceCode.Text);
             Record newRecord = new Record(inCurrentDateTime.Text, inDateServiceProvided.Text, inProviderID.Text, inMemberID.Text, inServiceCode.Text, inComments.Text, service.Fee);
             DataCenter.WriteRecordInfo(newRecord);
@@ -45,6 +51,12 @@ namespace ChocAn
 
         private void btnVerifyService_Click(object sender, RoutedEventArgs e)
         {
+            if (!int.TryParse(inServiceCode.Text, out int _))
+            {
+                lblServiceAdded.Content = "Service code is not valid";
+                return;
+            }
+
             Service service = DataCenter.RequestServiceInfoByNumber(inServiceCode.Text);
             lblServiceCode.Content = service.Code;
             lblServiceName.Content = service.Name;
