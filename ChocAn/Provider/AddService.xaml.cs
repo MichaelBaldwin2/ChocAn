@@ -42,7 +42,25 @@ namespace ChocAn
                 return;
             }
 
-            Service service = DataCenter.RequestServiceInfoByNumber(inServiceCode.Text);
+            var service = DataCenter.RequestServiceInfoByNumber(inServiceCode.Text);
+            var provider = DataCenter.RequestProviderInfo(inProviderID.Text);
+            var member = DataCenter.RequestMemberInfo(inMemberID.Text);
+            if(service == null)
+            {
+                lblServiceAdded.Content = "Service code does not exist!";
+                return;
+            }
+            if (provider == null)
+            {
+                lblServiceAdded.Content = "Provider ID does not exist!";
+                return;
+            }
+            if (member == null)
+            {
+                lblServiceAdded.Content = "Member ID does not exist!";
+                return;
+            }
+
             Record newRecord = new Record(inCurrentDateTime.Text, inDateServiceProvided.Text, inProviderID.Text, inMemberID.Text, inServiceCode.Text, inComments.Text, service.Fee);
             DataCenter.WriteRecordInfo(newRecord);
             lblServiceAdded.Content = "Service added successfully";
