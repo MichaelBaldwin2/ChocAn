@@ -44,9 +44,16 @@ namespace ChocAn
                 return;
             }
 
-            OperatorPanel operatorPanelWindow = new OperatorPanel();
-            operatorPanelWindow.Show();
-            this.Close();
+            if (operatorID == "0000")
+            {
+                OperatorPanel operatorPanelWindow = new OperatorPanel();
+                operatorPanelWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                lblOperatorIDInputError.Content = "Operator ID does not exist in the database! Hint: It's '0000'";
+            }
         }
     }
 }
