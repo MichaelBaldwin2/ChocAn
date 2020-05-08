@@ -21,6 +21,7 @@ namespace ChocAn
     public partial class ProviderLogin : Window
     {
         private Regex numOnlyRegex = new Regex("[^0-9.-]+");
+
         public ProviderLogin()
         {
             InitializeComponent();
@@ -44,10 +45,18 @@ namespace ChocAn
                 return;
             }
 
-            ProviderPanel providerPanelWindow = new ProviderPanel();
-            providerPanelWindow.Show();
-            this.Close();
+            var provider = DataCenter.RequestProviderInfo(providerNumber);
+            if(provider != null)
+            {
 
+                ProviderPanel providerPanelWindow = new ProviderPanel();
+                providerPanelWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                lblProviderIDInputError.Content = "Provider ID does not exist in the database!";
+            }
         }
     }
 }

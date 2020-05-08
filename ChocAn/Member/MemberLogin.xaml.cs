@@ -44,9 +44,17 @@ namespace ChocAn
                 return;
             }
 
-            MemberPanel memberPanelWindow = new MemberPanel();
-            memberPanelWindow.Show();
-            this.Close();
+            var member = DataCenter.RequestMemberInfo(memberID);
+            if (member != null)
+            {
+                MemberPanel memberPanelWindow = new MemberPanel();
+                memberPanelWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                lblMemberIDInputError.Content = "Member ID does not exist in the database!";
+            }
         }
     }
 }
