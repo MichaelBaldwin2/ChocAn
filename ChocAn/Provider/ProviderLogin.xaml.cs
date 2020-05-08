@@ -44,11 +44,10 @@ namespace ChocAn
                 lblProviderIDInputError.Content = "Provider ID must be numerical!";
                 return;
             }
-
+            
             var provider = DataCenter.RequestProviderInfo(providerNumber);
             if(provider != null)
             {
-
                 ProviderPanel providerPanelWindow = new ProviderPanel();
                 providerPanelWindow.Show();
                 this.Close();

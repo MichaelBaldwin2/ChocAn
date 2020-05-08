@@ -19,9 +19,10 @@ namespace ChocAn
     /// </summary>
     public partial class MemberPanel : Window
     {
-        public MemberPanel()
+        public MemberPanel(string memberNumber)
         {
             InitializeComponent();
+            lblMemberPanel.Content = "Welcome, " + DataCenter.RequestMemberInfo(memberNumber).Name + "!";
         }
 
         private void btnMemberPayService_Click(object sender, RoutedEventArgs e)
