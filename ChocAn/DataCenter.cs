@@ -210,12 +210,6 @@ namespace ChocAn
 		public static void WriteProviderInfo(Provider provider)
 		{
 			var parentElem = XDoc.Root.Element("Providers");
-			if (parentElem == null)
-			{
-				parentElem = new XElement("Providers");
-				XDoc.Root.Add(parentElem);
-			}
-
 			var newElem = new XElement("Provider");
 			provider.Save(newElem);
 			parentElem.Add(newElem);
@@ -229,12 +223,6 @@ namespace ChocAn
 		public static void WriteMemberInfo(Member member)
 		{
 			var parentElem = XDoc.Root.Element("Members");
-			if (parentElem == null)
-			{
-				parentElem = new XElement("Members");
-				XDoc.Root.Add(parentElem);
-			}
-
 			var newElem = new XElement("Member");
 			member.Save(newElem);
 			parentElem.Add(newElem);

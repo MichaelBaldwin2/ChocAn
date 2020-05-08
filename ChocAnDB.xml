@@ -64,6 +64,15 @@
       <Comments>Check up</Comments>
       <Fee>10</Fee>
     </Record>
+    <Record>
+      <CurrentDate>Current Date and Time</CurrentDate>
+      <ServiceDate>Service Date</ServiceDate>
+      <ProviderNumber>666666666</ProviderNumber>
+      <MemberNumber>101010101</MemberNumber>
+      <ServiceCode>222222</ServiceCode>
+      <Comments>Very good</Comments>
+      <Fee>400</Fee>
+    </Record>
   </Records>
   <Providers>
     <Provider>
