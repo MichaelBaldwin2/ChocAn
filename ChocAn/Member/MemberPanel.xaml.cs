@@ -26,12 +26,12 @@ namespace ChocAn
 
         private void btnMemberPayService_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Please see a provider to complete this request.");
         }
 
         private void btnMemberPayDues_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Please see a provider to complete this request.");
         }
 
         private void btnBackToMain_Click(object sender, RoutedEventArgs e)
