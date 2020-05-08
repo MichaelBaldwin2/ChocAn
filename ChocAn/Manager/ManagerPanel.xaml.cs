@@ -26,7 +26,7 @@ namespace ChocAn
 
         private void btnRunServicesReport_Click(object sender, RoutedEventArgs e)
         {
-
+            GenerateReport.GenerateSummaryReport("ManagerSummaryReport");
         }
 
         private void btnBackToMain_Click(object sender, RoutedEventArgs e)
