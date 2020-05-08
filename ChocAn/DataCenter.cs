@@ -36,6 +36,9 @@ namespace ChocAn
 		/// <returns>A list of records, or null</returns>
 		public static List<Record> RequestAllRecordsFromMember(string memberNumber)
 		{
+			if(!int.TryParse(memberNumber, out int _))
+				return null;
+
 			return RequestAllRecords().Where(r => r.MemberNumber == memberNumber).ToList();
 		}
 
@@ -46,6 +49,9 @@ namespace ChocAn
 		/// <returns>A list of records, or null</returns>
 		public static List<Record> RequestAllRecordsFromProvider(string providerNumber)
 		{
+			if (!int.TryParse(providerNumber, out int _))
+				return null;
+
 			return RequestAllRecords().Where(r => r.ProviderNumber == providerNumber).ToList();
 		}
 
@@ -56,6 +62,9 @@ namespace ChocAn
 		/// <returns>A provider if found, or null if not found</returns>
 		public static Provider RequestProviderInfo(string providerNumber)
 		{
+			if (!int.TryParse(providerNumber, out int _))
+				return null;
+
 			return RequestAllProviders().SingleOrDefault(p => p.Number == providerNumber);
 		}
 
@@ -66,6 +75,9 @@ namespace ChocAn
 		/// <returns>A member if found, or null if not found</returns>
 		public static Member RequestMemberInfo(string memberNumber)
 		{
+			if (!int.TryParse(memberNumber, out int _))
+				return null;
+
 			return RequestAllMembers().SingleOrDefault(m => m.Number == memberNumber);
 		}
 
@@ -76,6 +88,9 @@ namespace ChocAn
 		/// <returns>A service if found, or null if not found</returns>
 		public static Service RequestServiceInfoByNumber(string serviceCode)
 		{
+			if (!int.TryParse(serviceCode, out int _))
+				return null;
+
 			return RequestAllServices().SingleOrDefault(s => s.Code == serviceCode);
 		}
 
