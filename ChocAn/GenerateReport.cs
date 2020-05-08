@@ -28,7 +28,7 @@ namespace ChocAn
 			float totalFee = 0;
 			int totalConsults = 0;
 
-			using (var output = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
+			using (var output = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
 				foreach (var iProvider in allProviders)
 				{
@@ -110,7 +110,7 @@ namespace ChocAn
 			name = name.Replace("\\s+", "");
 			var fileName = name + ".txt";
 
-			using (StreamWriter input = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
+			using (StreamWriter input = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
 				input.Write("Member Name: " + member.Name + "\n" + "Member Number: " + member.Number + "\n" +
 					"Member Address: " + member.Address + "\n" + "Member City: " + member.City +
@@ -141,7 +141,7 @@ namespace ChocAn
 			double totalFee = 0;
 			string fileName = name + ".txt";
 
-			using (var output = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
+			using (var output = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
 				output.Write("Provider Name: " + provider.Name + "\n" + "Provider Number: " + provider.Number + "\n" + "Provider Address: " + provider.Address +
 					"\n" + "Provider City: " + provider.City + "\n" + "Provider State: " + provider.State + "\n" + "Provider Zip Code: " + provider.Zip + "\n");
@@ -180,7 +180,7 @@ namespace ChocAn
 
 			var fileName = "ProviderDirectory.txt";
 
-			using (var output = new StreamWriter(new FileStream(fileName, FileMode.OpenOrCreate)))
+			using (var output = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
 				foreach (var iService in allServices)
 				{
