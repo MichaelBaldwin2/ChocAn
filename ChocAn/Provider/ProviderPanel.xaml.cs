@@ -40,7 +40,7 @@ namespace ChocAn
         private void btnProviderDirectory_Click(object sender, RoutedEventArgs e)
         {
             GenerateReport.PrintProviderDirectory();
-            MessageBox.Show("The provider directory has been saved to ProviderDirectory.txt within ProviderDirectory", "Provider Directory", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("The provider directory has been saved to ProviderDirectory.txt within ProviderDirectory", "Provider Directory");
         }
 
         private void btnBackToMain_Click(object sender, RoutedEventArgs e)

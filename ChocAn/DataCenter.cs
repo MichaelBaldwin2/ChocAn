@@ -259,7 +259,12 @@ namespace ChocAn
 		/// <returns></returns>
 		public static bool ValidateMember(string memberNumber)
 		{
-			return RequestAllMembers().SingleOrDefault(m => m.Number == memberNumber).Enabled;
+			var allMembers = RequestAllMembers();
+
+			foreach (var member in allMembers)
+				if (member.Number == memberNumber)
+					return member.Enabled;
+			return false;
 		}
 	}
 }
