@@ -42,11 +42,18 @@ namespace ChocAn
 			{
 				lblManagerIDInputError.Content = "Manager ID must be numerical!";
 				return;
-			}
+            }
 
-			ManagerPanel managerPanelWindow = new ManagerPanel();
-			managerPanelWindow.Show();
-			this.Close();
+            if (managerID == "0000")
+            {
+                ManagerPanel managerPanelWindow = new ManagerPanel();
+                managerPanelWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                lblManagerIDInputError.Content = "Manager ID does not exist in the database! Hint: It's '0000'";
+            }
 		}
 	}
 }

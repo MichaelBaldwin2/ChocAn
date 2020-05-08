@@ -28,6 +28,11 @@ namespace ChocAn
 			float totalFee = 0;
 			int totalConsults = 0;
 
+			if(File.Exists(fileName))
+			{
+				File.Delete(fileName);
+			}
+
 			using (var output = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
 				foreach (var iProvider in allProviders)
@@ -110,6 +115,11 @@ namespace ChocAn
 			name = name.Replace("\\s+", "");
 			var fileName = name + ".txt";
 
+			if (File.Exists(fileName))
+			{
+				File.Delete(fileName);
+			}
+
 			using (StreamWriter input = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
 				input.Write("Member Name: " + member.Name + "\n" + "Member Number: " + member.Number + "\n" +
@@ -140,6 +150,11 @@ namespace ChocAn
 			name = name.Replace("\\s+", "");
 			double totalFee = 0;
 			string fileName = name + ".txt";
+
+			if (File.Exists(fileName))
+			{
+				File.Delete(fileName);
+			}
 
 			using (var output = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
@@ -179,6 +194,11 @@ namespace ChocAn
 			var allServices = DataCenter.RequestAllServices();
 
 			var fileName = "ProviderDirectory.txt";
+
+			if (File.Exists(fileName))
+			{
+				File.Delete(fileName);
+			}
 
 			using (var output = new StreamWriter(new FileStream(fileName, FileMode.CreateNew)))
 			{
