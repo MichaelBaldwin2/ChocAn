@@ -32,7 +32,7 @@ namespace ChocAn
 				foreach (var iProvider in allProviders)
 				{
 					var allRecords = DataCenter.RequestAllRecordsFromProvider(iProvider.Number);
-					output.WriteLine("Provider Name: " + iProvider.Name + ",");
+					output.Write("Provider Name: " + iProvider.Name + ",");
 					if (allRecords == null)
 					{
 						output.Write(" Number of Consultations: 0" + "," + " Fees: $0\n");
