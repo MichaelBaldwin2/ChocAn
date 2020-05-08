@@ -31,6 +31,16 @@ namespace ChocAn
                 lblServiceAdded.Content = "Service code is not valid";
                 return;
             }
+            if (!int.TryParse(inProviderID.Text, out int _))
+            {
+                lblServiceAdded.Content = "Provider ID is not valid";
+                return;
+            }
+            if (!int.TryParse(inMemberID.Text, out int _))
+            {
+                lblServiceAdded.Content = "Member ID is not valid";
+                return;
+            }
 
             Service service = DataCenter.RequestServiceInfoByNumber(inServiceCode.Text);
             Record newRecord = new Record(inCurrentDateTime.Text, inDateServiceProvided.Text, inProviderID.Text, inMemberID.Text, inServiceCode.Text, inComments.Text, service.Fee);

@@ -55,9 +55,6 @@ namespace ChocAn
                 lblProviderIDInputError.Content = "Provider ID does not match our records!";
                 return;
             }
-
-            btnBackToMain_Click(sender, e);
-            
         }
     }
 }

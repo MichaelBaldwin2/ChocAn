@@ -48,7 +48,7 @@ namespace ChocAn
             var provider = DataCenter.RequestProviderInfo(providerNumber);
             if(provider != null)
             {
-                ProviderPanel providerPanelWindow = new ProviderPanel();
+                ProviderPanel providerPanelWindow = new ProviderPanel(providerNumber);
                 providerPanelWindow.Show();
                 this.Close();
             }
