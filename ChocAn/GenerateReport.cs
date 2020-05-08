@@ -44,11 +44,12 @@ namespace ChocAn
 						totalConsults += allRecords.Count;
 						totalFee += DataCenter.RequestAllRecordsFromProvider(iProvider.Number).Sum(p => p.Fee);
 					}
-					output.Write("\n");
-					output.Write("Total Number of Providers: " + allProviders.Count() + "\n");
-					output.Write("Total Number of Consultations: " + totalConsults + "\n");
-					output.Write("Total Number of Fees: $" + totalFee + "\n");
+					
 				}
+				output.Write("\n");
+				output.Write("Total Number of Providers: " + allProviders.Count() + "\n");
+				output.Write("Total Number of Consultations: " + totalConsults + "\n");
+				output.Write("Total Number of Fees: $" + totalFee + "\n");
 			}
 
 			OpenFile(fileName);
