@@ -28,8 +28,8 @@ namespace ChocAn
 
         private void btnBackToMain_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            OperatorPanel operatorPanelWindow = new OperatorPanel();
+            operatorPanelWindow.Show();
             this.Close();
         }
 
