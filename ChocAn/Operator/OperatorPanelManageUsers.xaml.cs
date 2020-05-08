@@ -34,14 +34,23 @@ namespace ChocAn
 
         private void btnNewProvider_Click(object sender, RoutedEventArgs e)
         {
-            // Check all the inputs
+            if(!int.TryParse(inProviderNumber.Text, out int _))
+            {
+                lblInputError.Content = "Provider Number must be numerical!";
+                return;
+            }
+
             var provider = new Provider(inProviderName.Text, inProviderNumber.Text, inProviderAddress.Text, inProviderCity.Text, inProviderState.Text, inProviderZip.Text, true);
             DataCenter.WriteProviderInfo(provider);
         }
 
         private void btnNewMember_Click(object sender, RoutedEventArgs e)
         {
-            // Check all the inputs
+            if (!int.TryParse(inMemberNumber.Text, out int _))
+            {
+                lblInputError.Content = "Member Number must be numerical!";
+                return;
+            }
             var member = new Member(inMemberName.Text, inMemberNumber.Text, inMemberAddress.Text, inMemberCity.Text, inMemberState.Text, inMemberZip.Text, true);
             DataCenter.WriteMemberInfo(member);
         }
