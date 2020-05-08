@@ -20,9 +20,10 @@ namespace ChocAn
     /// </summary>
     public partial class ProviderPanel : Window
     {
-        public ProviderPanel()
+        public ProviderPanel(string providerNumber)
         {
             InitializeComponent();
+            lblProviderPanel.Content = "Welcome, " + DataCenter.RequestProviderInfo(providerNumber).Name + "!";
         }
 
         private void btnValidateMember_Click(object sender, RoutedEventArgs e)

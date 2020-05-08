@@ -44,7 +44,7 @@ namespace ChocAn
                 return;
             }
 
-            ProviderPanel providerPanelWindow = new ProviderPanel();
+            ProviderPanel providerPanelWindow = new ProviderPanel(providerNumber);
             providerPanelWindow.Show();
             this.Close();
 

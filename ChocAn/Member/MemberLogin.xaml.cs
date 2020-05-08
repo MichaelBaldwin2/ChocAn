@@ -44,7 +44,7 @@ namespace ChocAn
                 return;
             }
 
-            MemberPanel memberPanelWindow = new MemberPanel();
+            MemberPanel memberPanelWindow = new MemberPanel(memberID);
             memberPanelWindow.Show();
             this.Close();
         }
