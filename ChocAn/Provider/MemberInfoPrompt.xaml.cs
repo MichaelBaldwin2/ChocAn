@@ -41,6 +41,7 @@ namespace ChocAn
                 return;
             }
 
+            lblMemberIDInputError.Content = "";
             MessageBox.Show("Member " + DataCenter.RequestMemberInfo(memberID).Name + " (" + memberID + ") is valid.");
             btnBackToMain_Click(sender, e);           
 
