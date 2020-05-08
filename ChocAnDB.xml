@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ChocAn>
+  <Records>
+    <Record>
+      <CurrentDate>12-10-2018 12:10:12</CurrentDate>
+      <ServiceDate>12-10-2018 12:10:12</ServiceDate>
+      <ProviderNumber>666666666</ProviderNumber>
+      <MemberNumber>101010101</MemberNumber>
+      <ServiceCode>333333</ServiceCode>
+      <Comments>This was successful</Comments>
+    </Record>
+    <Record>
+      <CurrentDate>11-29-2018 02:44:12</CurrentDate>
+      <ServiceDate>11-29-2018</ServiceDate>
+      <ProviderNumber>987654321</ProviderNumber>
+      <MemberNumber>123456789</MemberNumber>
+      <ServiceCode>123456</ServiceCode>
+      <Comments>Test</Comments>
+    </Record>
+    <Record>
+      <CurrentDate>12-02-2018 03:08:04</CurrentDate>
+      <ServiceDate>12-20-2018</ServiceDate>
+      <ProviderNumber>334334334</ProviderNumber>
+      <MemberNumber>123456789</MemberNumber>
+      <ServiceCode>888888</ServiceCode>
+      <Comments>none</Comments>
+    </Record>
+    <Record>
+      <CurrentDate>12-02-2018 16:21:44</CurrentDate>
+      <ServiceDate>12-03-2018</ServiceDate>
+      <ProviderNumber>334334334</ProviderNumber>
+      <MemberNumber>123456789</MemberNumber>
+      <ServiceCode>222222</ServiceCode>
+      <Comments>He did not like the tea</Comments>
+    </Record>
+    <Record>
+      <CurrentDate>12-05-2018 02:44:12</CurrentDate>
+      <ServiceDate>12-02-2018</ServiceDate>
+      <ProviderNumber>334334334</ProviderNumber>
+      <MemberNumber>123123123</MemberNumber>
+      <ServiceCode>654321</ServiceCode>
+      <Comments>He does not remember</Comments>
+    </Record>
+    <Record>
+      <CurrentDate>12-02-2018 02:44:12</CurrentDate>
+      <ServiceDate>12-02-2018</ServiceDate>
+      <ProviderNumber>334334334</ProviderNumber>
+      <MemberNumber>676767676</MemberNumber>
+      <ServiceCode>333333</ServiceCode>
+      <Comments>Not too great</Comments>
+    </Record>
+    <Record>
+      <CurrentDate>12-05-2018 01:10:12</CurrentDate>
+      <ServiceDate>12-05-2018</ServiceDate>
+      <ProviderNumber>987654321</ProviderNumber>
+      <MemberNumber>676767676</MemberNumber>
+      <ServiceCode>888888</ServiceCode>
+      <Comments>Check up</Comments>
+    </Record>
+  </Records>
+  <Providers>
+    <Provider>
+      <Name>Minerva McGonagall</Name>
+      <Number>987654321</Number>
+      <Address>1000 Mansion Road</Address>
+      <City>Tuscaloosa</City>
+      <State>Alabama</State>
+      <Zip>35401</Zip>
+      <Enabled>True</Enabled>
+    </Provider>
+    <Provider>
+      <Name>Rubeus Hagrid</Name>
+      <Number>334334334</Number>
+      <Address>1 Forbidden Forest Drive</Address>
+      <City>Hogwarts</City>
+      <State>Scotland</State>
+      <Zip>77777</Zip>
+      <Enabled>True</Enabled>
+    </Provider>
+    <Provider>
+      <Name>Albus Dumbledore</Name>
+      <Number>111111111</Number>
+      <Address>908 Homeless Road</Address>
+      <City>Hogsmeade</City>
+      <State>California</State>
+      <Zip>30012</Zip>
+      <Enabled>True</Enabled>
+    </Provider>
+    <Provider>
+      <Name>Lord Voldemort</Name>
+      <Number>666666666</Number>
+      <Address>666 Dark Palace Street</Address>
+      <City>London</City>
+      <State>England</State>
+      <Zip>66666</Zip>
+      <Enabled>True</Enabled>
+    </Provider>
+  </Providers>
+  <Members>
+    <Member>
+      <Name>Draco Malfoy</Name>
+      <Number>999999991</Number>
+      <Address>10 Slytherin Lane</Address>
+      <City>Seattle</City>
+      <State>Washington</State>
+      <Zip>55432</Zip>
+      <Enabled>True</Enabled>
+    </Member>
+    <Member>
+      <Name>Ginny Weasley</Name>
+      <Number>101010101</Number>
+      <Address>1902 West Street</Address>
+      <City>Tuscaloosa</City>
+      <State>Alabama</State>
+      <Zip>31902</Zip>
+      <Enabled>True</Enabled>
+    </Member>
+    <Member>
+      <Name>Harry Potter</Name>
+      <Number>123456789</Number>
+      <Address>4 Privet Drive</Address>
+      <City>Little Whinging</City>
+      <State>Surrey</State>
+      <Zip>30128</Zip>
+      <Enabled>True</Enabled>
+    </Member>
+    <Member>
+      <Name>Neville Longbottom</Name>
+      <Number>123123123</Number>
+      <Address>123 Goofy Lane</Address>
+      <City>Chicago</City>
+      <State>Illinois</State>
+      <Zip>12345</Zip>
+      <Enabled>True</Enabled>
+    </Member>
+    <Member>
+      <Name>Ronald Weasley</Name>
+      <Number>676767676</Number>
+      <Address>221B Baker Street</Address>
+      <City>Belk</City>
+      <State>Alabama</State>
+      <Zip>31902</Zip>
+      <Enabled>True</Enabled>
+    </Member>
+  </Members>
+  <Services>
+    <Service>
+      <Name>Potion Diet</Name>
+      <Code>123456</Code>
+      <Fee>100</Fee>
+    </Service>
+    <Service>
+      <Name>Memory Eraser</Name>
+      <Code>654321</Code>
+      <Fee>200</Fee>
+    </Service>
+    <Service>
+      <Name>Broom Workout</Name>
+      <Code>111111</Code>
+      <Fee>300</Fee>
+    </Service>
+    <Service>
+      <Name>Tea Detox</Name>
+      <Code>222222</Code>
+      <Fee>400</Fee>
+    </Service>
+    <Service>
+      <Name>Muggles Obesity</Name>
+      <Code>333333</Code>
+      <Fee>500</Fee>
+    </Service>
+    <Service>
+      <Name>Check up</Name>
+      <Code>888888</Code>
+      <Fee>10</Fee>
+    </Service>
+  </Services>
+</ChocAn>

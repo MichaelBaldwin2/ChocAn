@@ -55,15 +55,68 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DBFile.cs" />
-    <Compile Include="IDNumber.cs" />
-    <Compile Include="Member.cs" />
-    <Compile Include="MemberNotFoundException.cs" />
-    <Compile Include="Provider.cs" />
-    <Compile Include="ProviderNotFoundException.cs" />
+    <Compile Include="MemberInfoPrompt.xaml.cs">
+      <DependentUpon>MemberInfoPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\AddService.xaml.cs">
+      <DependentUpon>AddService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateReport.cs" />
+    <Compile Include="Manager\ManagerLogin.xaml.cs">
+      <DependentUpon>ManagerLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerPanel.xaml.cs">
+      <DependentUpon>ManagerPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\MemberDeleteInfo.xaml.cs">
+      <DependentUpon>MemberDeleteInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Member.cs" />
+    <Compile Include="Member\MemberLogin.xaml.cs">
+      <DependentUpon>MemberLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Member\MemberNotFoundException.cs" />
+    <Compile Include="Member\MemberPanel.xaml.cs">
+      <DependentUpon>MemberPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\OperatorLogin.xaml.cs">
+      <DependentUpon>OperatorLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\OperatorPanel.xaml.cs">
+      <DependentUpon>OperatorPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\OperatorPanelManageUsers.xaml.cs">
+      <DependentUpon>OperatorPanelManageUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\PromptProviderInfo.xaml.cs">
+      <DependentUpon>PromptProviderInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\PromptMemberInfo.xaml.cs">
+      <DependentUpon>PromptMemberInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operator\ProviderDeleteInfo.xaml.cs">
+      <DependentUpon>ProviderDeleteInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\Provider.cs" />
+    <Compile Include="Provider\ProviderLogin.xaml.cs">
+      <DependentUpon>ProviderLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Provider\ProviderPanel.xaml.cs">
+      <DependentUpon>ProviderPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs" />
+    <Compile Include="Provider\ProviderNotFoundException.cs" />
     <Compile Include="Record.cs" />
     <Compile Include="RecordNotFoundException.cs" />
     <Compile Include="ServiceNotFoundException.cs" />
+    <Page Include="MemberInfoPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Provider\AddService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,15 +125,67 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChocAnDataCenter.cs" />
+    <Compile Include="DataCenter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Manager\ManagerLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager\ManagerPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\MemberDeleteInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Member\MemberLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Member\MemberPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\OperatorLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\OperatorPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\OperatorPanelManageUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\PromptProviderInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\PromptMemberInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Operator\ProviderDeleteInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Provider\ProviderLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Provider\ProviderPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Manager.cs" />
-    <Compile Include="Operator.cs" />
+    <Compile Include="Manager\Manager.cs" />
+    <Compile Include="Operator\Operator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

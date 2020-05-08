@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Windows.Documents;
 using System.Xml.Linq;
 
 namespace ChocAn
 {
+	/// <summary>
+	/// Provider class representing the provider
+	/// </summary>
 	public class Provider
 	{
 		public string Name { get; private set; }
@@ -15,7 +15,12 @@ namespace ChocAn
 		public string City { get; private set; }
 		public string State { get; private set; }
 		public string Zip { get; private set; }
+		public bool Enabled { get; private set; }
+		public List<Record> ServicesProvided { get { return DataCenter.RequestAllRecordsFromProvider(Number); } }
 
+		/// <summary>
+		/// Default constructor. Needed for deserialization.
+		/// </summary>
 		public Provider()
 		{
 			Name = "";
@@ -24,9 +29,13 @@ namespace ChocAn
 			City = "";
 			State = "";
 			Zip = "";
+			Enabled = true;
 		}
 
-		public Provider(string name, string number, string address, string city, string state, string zip)
+		/// <summary>
+		/// Constructor taking in property values.
+		/// </summary>
+		public Provider(string name, string number, string address, string city, string state, string zip, bool enabled)
 		{
 			Name = name;
 			Number = number;
@@ -34,8 +43,13 @@ namespace ChocAn
 			City = city;
 			State = state;
 			Zip = zip;
+			Enabled = enabled;
 		}
 
+		/// <summary>
+		/// Save this providers information to the database
+		/// </summary>
+		/// <param name="parentNode">THe XElement node to write under</param>
 		public void Save(XElement parentNode)
 		{
 			parentNode.Add(
@@ -44,9 +58,14 @@ namespace ChocAn
 				new XElement("Address", Address),
 				new XElement("City", City),
 				new XElement("State", State),
-				new XElement("Zip", Zip));
+				new XElement("Zip", Zip),
+				new XElement("Enabled", Enabled));
 		}
 
+		/// <summary>
+		/// Load this providers information from the database.
+		/// </summary>
+		/// <param name="parentNode">The XElement node to read from</param>
 		public void Load(XElement parentNode)
 		{
 			foreach(var iChild in parentNode.Elements())
@@ -70,6 +89,9 @@ namespace ChocAn
 						break;
 					case "Zip":
 						Zip = iChild.Value;
+						break;
+					case "Enabled":
+						Enabled = bool.Parse(iChild.Value);
 						break;
 				}
 			}
