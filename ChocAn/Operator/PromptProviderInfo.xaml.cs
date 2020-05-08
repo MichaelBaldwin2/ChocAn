@@ -44,7 +44,18 @@ namespace ChocAn
                 return;
             }
 
-            GenerateReport.GenerateProviderReport(providerNumber);
+            var provider = DataCenter.RequestProviderInfo(providerNumber);
+            if (provider != null)
+            {
+                GenerateReport.GenerateProviderReport(provider);
+                btnBackToMain_Click(sender, e);
+            }
+            else
+            {
+                lblProviderIDInputError.Content = "Provider ID does not match our records!";
+                return;
+            }
+
             btnBackToMain_Click(sender, e);
             
         }

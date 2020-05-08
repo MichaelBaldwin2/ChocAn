@@ -56,7 +56,7 @@ namespace ChocAn
 		/// <returns>A provider if found, or null if not found</returns>
 		public static Provider RequestProviderInfo(string providerNumber)
 		{
-			return RequestAllProviders().Single(p => p.Number == providerNumber);
+			return RequestAllProviders().SingleOrDefault(p => p.Number == providerNumber);
 		}
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace ChocAn
 		/// <returns>A member if found, or null if not found</returns>
 		public static Member RequestMemberInfo(string memberNumber)
 		{
-			return RequestAllMembers().Single(m => m.Number == memberNumber);
+			return RequestAllMembers().SingleOrDefault(m => m.Number == memberNumber);
 		}
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace ChocAn
 		/// <returns>A service if found, or null if not found</returns>
 		public static Service RequestServiceInfoByNumber(string serviceCode)
 		{
-			return RequestAllServices().Single(s => s.Code == serviceCode);
+			return RequestAllServices().SingleOrDefault(s => s.Code == serviceCode);
 		}
 
 		/// <summary>
@@ -86,7 +86,7 @@ namespace ChocAn
 		/// <returns>A service if found, or null if not found</returns>
 		public static Service RequestServiceInfoByName(string serviceName)
 		{
-			return RequestAllServices().Single(s => s.Code == serviceName);
+			return RequestAllServices().SingleOrDefault(s => s.Code == serviceName);
 		}
 
 		/// <summary>

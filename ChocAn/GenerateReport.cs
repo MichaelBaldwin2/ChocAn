@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows;
 
 namespace ChocAn
 {
@@ -58,20 +59,18 @@ namespace ChocAn
 		/// <summary>
 		/// Will generate a member report used by the manager
 		/// </summary>
-		/// <param name="number">The member number</param>
-		public static void GenerateMemberReport(string number)
+		/// <param name="member">The member</param>
+		public static void GenerateMemberReport(Member member)
 		{
-			var member = DataCenter.RequestMemberInfo(number);
 			PrintMemberReport(member, member.Name);
 		}
 
 		/// <summary>
 		/// Will generate a provider report used by the manager
 		/// </summary>
-		/// <param name="number">The provider number</param>
-		public static void GenerateProviderReport(string number)
+		/// <param name="provider">The provider</param>
+		public static void GenerateProviderReport(Provider provider)
 		{
-			var provider = DataCenter.RequestProviderInfo(number);
 			PrintProviderReport(provider, provider.Name);
 		}
 

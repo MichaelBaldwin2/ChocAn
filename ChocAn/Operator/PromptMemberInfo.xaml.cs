@@ -44,8 +44,17 @@ namespace ChocAn
                 return;
             }
 
-            GenerateReport.GenerateMemberReport(memberID);
-            btnBackToMain_Click(sender, e);
+            var member = DataCenter.RequestMemberInfo(memberID);
+            if(member != null)
+            {
+                GenerateReport.GenerateMemberReport(member);
+                btnBackToMain_Click(sender, e);
+            }
+            else
+            {
+                lblMemberIDInputError.Content = "Member ID does not match our records!";
+                return;
+            }
         }
     }
 }
